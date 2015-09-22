@@ -27,6 +27,10 @@
             make.left.equalTo(self.imageView).offset(40);
             make.centerY.equalTo(self.contentView);
         }];
+        
+        [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self);
+        }];
     }
     
     return self;

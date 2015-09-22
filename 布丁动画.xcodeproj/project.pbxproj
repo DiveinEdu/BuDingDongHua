@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1857AEFA1BB0ED31001BA627 /* DIEUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */; };
 		186DDFE21BAEEF0D006FA3B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE11BAEEF0D006FA3B1 /* main.m */; };
 		186DDFE51BAEEF0D006FA3B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE41BAEEF0D006FA3B1 /* AppDelegate.m */; };
 		186DDFED1BAEEF0D006FA3B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186DDFEC1BAEEF0D006FA3B1 /* Assets.xcassets */; };
@@ -42,9 +43,14 @@
 		186DE07E1BAFF67B006FA3B1 /* DIEThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DE07D1BAFF67B006FA3B1 /* DIEThirdViewController.m */; };
 		186DE0801BAFFBD0006FA3B1 /* side_menu_icon_cache~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 186DE07F1BAFFBD0006FA3B1 /* side_menu_icon_cache~iphone.png */; };
 		186DE0821BB00161006FA3B1 /* side_menu_icon_history@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 186DE0811BB00161006FA3B1 /* side_menu_icon_history@2x~iphone.png */; };
+		186DE0851BB034AF006FA3B1 /* DIERecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DE0841BB034AF006FA3B1 /* DIERecommendViewController.m */; };
+		186DE0881BB034BF006FA3B1 /* DIECategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DE0871BB034BF006FA3B1 /* DIECategoryViewController.m */; };
+		186DE08C1BB0455C006FA3B1 /* ViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DE08B1BB0455C006FA3B1 /* ViewPagerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1857AEF81BB0ED31001BA627 /* DIEUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEUserInfoView.h; sourceTree = "<group>"; };
+		1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEUserInfoView.m; sourceTree = "<group>"; };
 		186DDFDD1BAEEF0D006FA3B1 /* 布丁动画.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "布丁动画.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		186DDFE11BAEEF0D006FA3B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		186DDFE31BAEEF0D006FA3B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +114,12 @@
 		186DE07D1BAFF67B006FA3B1 /* DIEThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEThirdViewController.m; sourceTree = "<group>"; };
 		186DE07F1BAFFBD0006FA3B1 /* side_menu_icon_cache~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "side_menu_icon_cache~iphone.png"; sourceTree = "<group>"; };
 		186DE0811BB00161006FA3B1 /* side_menu_icon_history@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "side_menu_icon_history@2x~iphone.png"; sourceTree = "<group>"; };
+		186DE0831BB034AF006FA3B1 /* DIERecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIERecommendViewController.h; sourceTree = "<group>"; };
+		186DE0841BB034AF006FA3B1 /* DIERecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIERecommendViewController.m; sourceTree = "<group>"; };
+		186DE0861BB034BF006FA3B1 /* DIECategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIECategoryViewController.h; sourceTree = "<group>"; };
+		186DE0871BB034BF006FA3B1 /* DIECategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIECategoryViewController.m; sourceTree = "<group>"; };
+		186DE08A1BB0455C006FA3B1 /* ViewPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPagerController.h; sourceTree = "<group>"; };
+		186DE08B1BB0455C006FA3B1 /* ViewPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPagerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +177,7 @@
 		186DDFF71BAEF296006FA3B1 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				186DE0891BB0455C006FA3B1 /* ICViewPager */,
 				186DE02C1BAF820E006FA3B1 /* Masonry */,
 				186DDFF81BAEF296006FA3B1 /* MMDrawerController */,
 			);
@@ -198,6 +211,10 @@
 				186DE07A1BAFF649006FA3B1 /* DIETimeLineViewController.m */,
 				186DE07C1BAFF67B006FA3B1 /* DIEThirdViewController.h */,
 				186DE07D1BAFF67B006FA3B1 /* DIEThirdViewController.m */,
+				186DE0831BB034AF006FA3B1 /* DIERecommendViewController.h */,
+				186DE0841BB034AF006FA3B1 /* DIERecommendViewController.m */,
+				186DE0861BB034BF006FA3B1 /* DIECategoryViewController.h */,
+				186DE0871BB034BF006FA3B1 /* DIECategoryViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -226,6 +243,8 @@
 			children = (
 				186DE0291BAF81D0006FA3B1 /* DIELeftTableViewCell.h */,
 				186DE02A1BAF81D0006FA3B1 /* DIELeftTableViewCell.m */,
+				1857AEF81BB0ED31001BA627 /* DIEUserInfoView.h */,
+				1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,6 +279,15 @@
 				186DE0451BAF820E006FA3B1 /* ViewController+MASAdditions.m */,
 			);
 			path = Masonry;
+			sourceTree = "<group>";
+		};
+		186DE0891BB0455C006FA3B1 /* ICViewPager */ = {
+			isa = PBXGroup;
+			children = (
+				186DE08A1BB0455C006FA3B1 /* ViewPagerController.h */,
+				186DE08B1BB0455C006FA3B1 /* ViewPagerController.m */,
+			);
+			path = ICViewPager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +378,7 @@
 				186DDFE51BAEEF0D006FA3B1 /* AppDelegate.m in Sources */,
 				186DE0021BAEF296006FA3B1 /* MMDrawerBarButtonItem.m in Sources */,
 				186DE0091BAEF607006FA3B1 /* DIELeftViewController.m in Sources */,
+				186DE0881BB034BF006FA3B1 /* DIECategoryViewController.m in Sources */,
 				186DE0461BAF820E006FA3B1 /* MASCompositeConstraint.m in Sources */,
 				186DE0481BAF820E006FA3B1 /* MASConstraintMaker.m in Sources */,
 				186DE04E1BAF820E006FA3B1 /* View+MASAdditions.m in Sources */,
@@ -362,9 +391,12 @@
 				186DE04C1BAF820E006FA3B1 /* NSArray+MASAdditions.m in Sources */,
 				186DE07E1BAFF67B006FA3B1 /* DIEThirdViewController.m in Sources */,
 				186DE04D1BAF820E006FA3B1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				186DE0851BB034AF006FA3B1 /* DIERecommendViewController.m in Sources */,
 				186DE0031BAEF296006FA3B1 /* MMDrawerController.m in Sources */,
 				186DE00C1BAEF62C006FA3B1 /* DIECenterViewController.m in Sources */,
+				186DE08C1BB0455C006FA3B1 /* ViewPagerController.m in Sources */,
 				186DDFE21BAEEF0D006FA3B1 /* main.m in Sources */,
+				1857AEFA1BB0ED31001BA627 /* DIEUserInfoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +535,7 @@
 				186DDFF61BAEEF0D006FA3B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -14,14 +14,48 @@
 #import "DIETimeLineViewController.h"
 #import "DIEThirdViewController.h"
 
-@interface AppDelegate ()
+#import "DIERecommendViewController.h"
+#import "DIECategoryViewController.h"
 
+#import "ViewPagerController.h"
+
+@interface AppDelegate () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIGestureRecognizerDelegate>
+{
+    NSArray *_pageArray;
+    
+    MMDrawerController *_drawerCtrl;
+}
 @end
 
 @implementation AppDelegate
 
+- (NSArray *)pageViewControllers {
+    DIERecommendViewController *recommendCtrl = [[DIERecommendViewController alloc] init];
+    DIECategoryViewController *categoryCtrl = [[DIECategoryViewController alloc] init];
+    return @[recommendCtrl, categoryCtrl];
+}
+
 - (NSArray *)tabBarControllers {
+    _pageArray = [self pageViewControllers];
+    
+//    UIPageViewController *centerCtrl = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+//    [centerCtrl setViewControllers:@[_pageArray[0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+//    centerCtrl.dataSource = self;
+//    centerCtrl.delegate = self;
+//    
+//    for (UIView *v in centerCtrl.view.subviews) {
+//        if ([v isKindOfClass:[UIScrollView class]]) {
+//            UIScrollView *scrollView = (UIScrollView *)v;
+//            [scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:NULL];
+//        }
+//    }
+    
+//    ViewPagerController *centerCtrl = [[ViewPagerController alloc] init];
+//    centerCtrl.dataSource = self;
+//    centerCtrl.delegate = self;
+    
     DIECenterViewController *centerCtrl = [[DIECenterViewController alloc] init];
+    
     UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:centerCtrl];
     
     DIETimeLineViewController *timeLineCtrl = [[DIETimeLineViewController alloc] init];
@@ -31,16 +65,27 @@
     return @[navCtrl, timeLineCtrl, thirdCtrl];
 }
 
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+//    
+//    UIScrollView *scrollView = (UIScrollView *)object;
+//    CGPoint v = [scrollView.panGestureRecognizer velocityInView:scrollView];
+//    if (v.x > 0) {
+//        scrollView.panGestureRecognizer.enabled = NO;
+//        scrollView.panGestureRecognizer.enabled = YES;
+//    }
+//}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
 
     UITabBarController *tabBarCtrl = [[UITabBarController alloc] init];
     tabBarCtrl.viewControllers = [self tabBarControllers];
     
     DIELeftViewController *leftCtrl = [[DIELeftViewController alloc] init];
     MMDrawerController *drawerCtrl = [[MMDrawerController alloc] initWithCenterViewController:tabBarCtrl leftDrawerViewController:leftCtrl];
+    _drawerCtrl = drawerCtrl;
+    drawerCtrl.panGestureRecognizer.delegate = self;
     
     //支持打开抽屉的手势类型
     drawerCtrl.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
@@ -53,26 +98,44 @@
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+#pragma mark - UIPageViewControllerDataSource
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    NSInteger index = [_pageArray indexOfObject:viewController];
+    if (index) {
+        return _pageArray[0];
+    }
+    else {
+        return nil;
+    }
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    NSInteger index = [_pageArray indexOfObject:viewController];
+    if (index) {
+        return nil;
+    }
+    else {
+        return _pageArray[1];
+    }
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
+//- (NSUInteger)numberOfTabsForViewPager:(ViewPagerController *)viewPager {
+//    return _pageArray.count;
+//}
+//
+//- (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index {
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+//    label.text = [NSString stringWithFormat:@"%d", index];
+//    return label;
+//}
+//
+//- (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
+//    return _pageArray[index];
+//}
 
 @end

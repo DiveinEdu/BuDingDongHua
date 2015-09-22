@@ -1274,6 +1274,8 @@ static inline CGFloat originXForDrawerOriginAndTargetOriginOffset(CGFloat origin
     [pan setDelegate:self];
     [self.view addGestureRecognizer:pan];
     
+    _panGestureRecognizer = pan;
+    
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureCallback:)];
     [tap setDelegate:self];
     [self.view addGestureRecognizer:tap];
@@ -1476,4 +1478,5 @@ static inline CGFloat originXForDrawerOriginAndTargetOriginOffset(CGFloat origin
     return (CGRectContainsPoint(rightBezelRect, point) &&
             [self isPointContainedWithinCenterViewContentRect:point]);
 }
+
 @end
