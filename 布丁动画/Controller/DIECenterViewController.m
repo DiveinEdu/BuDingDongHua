@@ -30,9 +30,11 @@
 
 - (instancetype)init {
     if (self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil]) {
+        //设置导航条上的标题栏
         _titleView = [[DIESegmentView alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
         _titleView.titleArray = @[@"推荐", @"分类"];
         
+        //防止block导致的循环引用
         __weak typeof(self) weakSelf = self;
         _titleView.didValueChanged = ^(DIESegmentView *sender) {
             weakSelf.currentPage = sender.selectedIndex;
@@ -59,7 +61,9 @@
     self.dataSource = self;
     self.delegate = self;
     
+    //获取UIPageViewController中使用到的scrollView
     _scrollView = [self scrollView:self.view];
+    //观察UIScrollView的运动
     [_scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:NULL];
     
 //    //在内存中查找不能直接获取到的对象
@@ -81,6 +85,7 @@
     NSValue *value = change[NSKeyValueChangeNewKey];
     CGPoint point = value.CGPointValue;
     
+    //在第0页继续往右拖动时，取消识别UIScrollView上的手势
     if (_currentPage == 0 && point.x <= self.view.frame.size.width) {
         _scrollView.panGestureRecognizer.enabled = NO;
         _scrollView.panGestureRecognizer.enabled = YES;
@@ -109,6 +114,7 @@
     return nil;
 }
 
+//设置当前页
 - (void)setCurrentPage:(NSInteger)currentPage {
     _currentPage = currentPage;
     
@@ -123,6 +129,7 @@
     [self setViewControllers:@[_pageArray[_currentPage]] direction:direction animated:YES completion:nil];
 }
 
+//返回前一页的对象
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     if (_currentPage) {
         return _pageArray[0];
@@ -132,6 +139,7 @@
     }
 }
 
+//返回后一页的对象
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     if (_currentPage) {
         return nil;
@@ -141,6 +149,7 @@
     }
 }
 
+//翻页动画完成
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
     _currentPage = [_pageArray indexOfObject:pageViewController.viewControllers.firstObject];
     

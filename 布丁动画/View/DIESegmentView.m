@@ -19,6 +19,7 @@
 - (void)setTitleArray:(NSArray *)titleArray {
     _titleArray = [titleArray copy];
     
+    //移除所有子视图
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     if (titleArray.count) {
         CGFloat width = self.bounds.size.width / _titleArray.count;
@@ -49,6 +50,7 @@
     }
 }
 
+//点击手势
 - (void)didTap:(UITapGestureRecognizer *)recognizer {
     if (_titleArray.count) {
         CGPoint point = [recognizer locationInView:self];
@@ -63,19 +65,23 @@
     }
 }
 
+//改变选中项
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
+    //取消老的选中项
     UILabel *deselectedLabel = [self.subviews objectAtIndex:_selectedIndex];
     deselectedLabel.textColor = [UIColor blackColor];
     
+    //选中新的项
     UILabel *selectedLabel = [self.subviews objectAtIndex:selectedIndex];
     selectedLabel.textColor = [UIColor orangeColor];
     
+    //移动指示器
     CGFloat width = self.bounds.size.width / _titleArray.count;
-    
     CGRect rect = _indicatorView.frame;
     rect.origin.x = width * selectedIndex;
     _indicatorView.frame = rect;
     
+    //更新索引
     _selectedIndex = selectedIndex;
 }
 
