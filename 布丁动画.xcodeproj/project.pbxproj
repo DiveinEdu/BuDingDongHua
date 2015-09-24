@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181D28F01BB3E517007DD1A0 /* DIESegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D28EF1BB3E517007DD1A0 /* DIESegmentView.m */; };
 		1857AEFA1BB0ED31001BA627 /* DIEUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */; };
 		186DDFE21BAEEF0D006FA3B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE11BAEEF0D006FA3B1 /* main.m */; };
 		186DDFE51BAEEF0D006FA3B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE41BAEEF0D006FA3B1 /* AppDelegate.m */; };
@@ -49,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		181D28EE1BB3E517007DD1A0 /* DIESegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIESegmentView.h; sourceTree = "<group>"; };
+		181D28EF1BB3E517007DD1A0 /* DIESegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIESegmentView.m; sourceTree = "<group>"; };
 		1857AEF81BB0ED31001BA627 /* DIEUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEUserInfoView.h; sourceTree = "<group>"; };
 		1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEUserInfoView.m; sourceTree = "<group>"; };
 		186DDFDD1BAEEF0D006FA3B1 /* 布丁动画.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "布丁动画.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,6 +248,8 @@
 				186DE02A1BAF81D0006FA3B1 /* DIELeftTableViewCell.m */,
 				1857AEF81BB0ED31001BA627 /* DIEUserInfoView.h */,
 				1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */,
+				181D28EE1BB3E517007DD1A0 /* DIESegmentView.h */,
+				181D28EF1BB3E517007DD1A0 /* DIESegmentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 				186DE0031BAEF296006FA3B1 /* MMDrawerController.m in Sources */,
 				186DE08C1BB0455C006FA3B1 /* ViewPagerController.m in Sources */,
 				186DDFE21BAEEF0D006FA3B1 /* main.m in Sources */,
+				181D28F01BB3E517007DD1A0 /* DIESegmentView.m in Sources */,
 				1857AEFA1BB0ED31001BA627 /* DIEUserInfoView.m in Sources */,
 				18C6386F1BB3977B00D2FCB6 /* DIECenterViewController.m in Sources */,
 			);

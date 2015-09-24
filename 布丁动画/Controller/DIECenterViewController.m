@@ -11,6 +11,8 @@
 #import "DIERecommendViewController.h"
 #import "DIECategoryViewController.h"
 
+#import "DIESegmentView.h"
+
 #import "MMDrawerController.h"
 #import "UIViewController+MMDrawerController.h"
 //#import "AppDelegate.h"
@@ -20,6 +22,7 @@
     NSArray *_pageArray;
     
     UIScrollView *_scrollView;
+    DIESegmentView *_titleView;
 }
 @end
 
@@ -27,7 +30,14 @@
 
 - (instancetype)init {
     if (self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil]) {
+        _titleView = [[DIESegmentView alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
+        _titleView.titleArray = @[@"推荐", @"分类"];
         
+        __weak typeof(self) weakSelf = self;
+        _titleView.didValueChanged = ^(DIESegmentView *sender) {
+            weakSelf.currentPage = sender.selectedIndex;
+        };
+        self.navigationItem.titleView = _titleView;
     }
     
     return self;
@@ -133,6 +143,8 @@
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
     _currentPage = [_pageArray indexOfObject:pageViewController.viewControllers.firstObject];
+    
+    _titleView.selectedIndex = _currentPage;
 }
 
 - (void)dealloc {
