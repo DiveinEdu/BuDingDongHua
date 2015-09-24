@@ -11,6 +11,9 @@
 #import "DIERecommendViewController.h"
 #import "DIECategoryViewController.h"
 
+#import "UIViewController+MMDrawerController.h"
+#import "AppDelegate.h"
+
 @interface DIECenterViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 {
     NSArray *_pageArray;
@@ -47,6 +50,20 @@
     
     _scrollView = [self scrollView:self.view];
     [_scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:NULL];
+    
+//    //在内存中查找不能直接获取到的对象
+//    //1. 从内到外的获取leftController
+//    NSLog(@"%@", self.navigationController.tabBarController.mm_drawerController.leftDrawerViewController);
+    
+//    //2. 从外到内的获取centerController
+//    //2.1 获取window
+////    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+//    //2.2 获取window
+//    UIWindow *window = ((AppDelegate *)[UIApplication sharedApplication].delegate).window;
+//    MMDrawerController *drawerCtrl = (MMDrawerController *)window.rootViewController;
+//    UITabBarController *tabBarCtrl = (UITabBarController *)drawerCtrl.centerViewController;
+//    UINavigationController *navCtrl = (UINavigationController *)tabBarCtrl.viewControllers.firstObject;
+//    NSLog(@"%@", navCtrl.viewControllers.firstObject);
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
