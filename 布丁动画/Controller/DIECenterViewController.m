@@ -14,6 +14,8 @@
 @interface DIECenterViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 {
     NSArray *_pageArray;
+    
+    UIScrollView *_scrollView;
 }
 @end
 
@@ -42,6 +44,30 @@
     
     self.dataSource = self;
     self.delegate = self;
+    
+    _scrollView = [self scrollView:self.view];
+    [_scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+    NSLog(@"%@", change);
+}
+
+//查找scrollView
+- (UIScrollView *)scrollView:(UIView *)view {
+    for (UIView *v in view.subviews) {
+        if ([v isKindOfClass:[UIScrollView class]]) {
+            return (UIScrollView *)v;
+        }
+        else {
+            UIView *sv = [self scrollView:v];
+            if (sv) {
+                return (UIScrollView *)sv;
+            }
+        }
+    }
+    
+    return nil;
 }
 
 - (void)setCurrentPage:(NSInteger)currentPage {
@@ -80,4 +106,7 @@
     _currentPage = [_pageArray indexOfObject:pageViewController.viewControllers.firstObject];
 }
 
+- (void)dealloc {
+    [_scrollView removeObserver:self forKeyPath:@"contentOffset"];
+}
 @end
