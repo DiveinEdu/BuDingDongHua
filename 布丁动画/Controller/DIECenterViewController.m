@@ -2,95 +2,82 @@
 //  DIECenterViewController.m
 //  布丁动画
 //
-//  Created by apple on 15/9/20.
+//  Created by apple on 15/9/24.
 //  Copyright © 2015年 戴维营教育. All rights reserved.
 //
 
 #import "DIECenterViewController.h"
-#import "UIViewController+MMDrawerController.h"
 
-#import "DIEUserInfoView.h"
+#import "DIERecommendViewController.h"
+#import "DIECategoryViewController.h"
 
-@interface DIECenterViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate>
+@interface DIECenterViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 {
-    UIScrollView *_scrollView;
+    NSArray *_pageArray;
 }
 @end
 
 @implementation DIECenterViewController
 
+- (instancetype)init {
+    if (self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil]) {
+        
+    }
+    
+    return self;
+}
+
+- (NSArray *)pageControllers {
+    DIERecommendViewController *recommendCtrl = [DIERecommendViewController new];
+    DIECategoryViewController *categoryCtrl = [DIECategoryViewController new];
+    
+    return @[recommendCtrl, categoryCtrl];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    _pageArray = [self pageControllers];
+    [self setViewControllers:@[_pageArray[0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Left" style:UIBarButtonItemStylePlain target:self action:@selector(didClicked)];
-    
-
-    
-    DIEUserInfoView *infoView = [[DIEUserInfoView alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
-    infoView.title = @"戴维营教育";
-    [self.view addSubview:infoView];
-    
-    infoView.title = @"中南大学";
-    
-#if 0
-    
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width * 2, self.view.bounds.size.height);
-    scrollView.pagingEnabled = YES;
-    [scrollView.panGestureRecognizer addTarget:self action:@selector(didPan:)];
-//    scrollView.panGestureRecognizer.delegate = self;
-    scrollView.delegate = self;
-    [self.view addSubview:scrollView];
-    
-    _scrollView = scrollView;
-    
-    UIView *redView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    redView.backgroundColor = [UIColor redColor];
-    [scrollView addSubview:redView];
-#endif
+    self.dataSource = self;
+    self.delegate = self;
 }
 
-- (void)didPan:(UIPanGestureRecognizer *)recognizer {
-    CGPoint v = [recognizer velocityInView:_scrollView];
-    NSLog(@"%@", NSStringFromCGPoint(v));
+- (void)setCurrentPage:(NSInteger)currentPage {
+    _currentPage = currentPage;
     
-    CGPoint offset = _scrollView.contentOffset;
-    NSLog(@">%@", NSStringFromCGPoint(offset));
-    
-    if (offset.x > 0) {
-        self.mm_drawerController.panGestureRecognizer.enabled = NO;
-    }
-//    else {
-//        self.mm_drawerController.panGestureRecognizer.enabled = YES;
-//    }
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.x >= 0) {
-        self.mm_drawerController.panGestureRecognizer.enabled = YES;
-    }
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    self.mm_drawerController.panGestureRecognizer.delegate = self;
-}
-
-- (void)didClicked {
-    //所有处于MMDrawerController中的视图控制器都有一个mm_drawerController属性
-    if (self.mm_drawerController.openSide == MMDrawerSideLeft) {
-        //关闭侧边栏
-        [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
+    UIPageViewControllerNavigationDirection direction;
+    if (_currentPage) {
+        direction = UIPageViewControllerNavigationDirectionForward;
     }
     else {
-        //打开左侧
-        [self.mm_drawerController openDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+        direction = UIPageViewControllerNavigationDirectionReverse;
+    }
+    
+    [self setViewControllers:@[_pageArray[_currentPage]] direction:direction animated:YES completion:nil];
+}
+
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    if (_currentPage) {
+        return _pageArray[0];
+    }
+    else {
+        return nil;
     }
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    return YES;
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    if (_currentPage) {
+        return nil;
+    }
+    else {
+        return _pageArray[1];
+    }
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
+    _currentPage = [_pageArray indexOfObject:pageViewController.viewControllers.firstObject];
 }
 
 @end
