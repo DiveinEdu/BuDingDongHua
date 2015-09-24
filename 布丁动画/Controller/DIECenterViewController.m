@@ -11,8 +11,9 @@
 #import "DIERecommendViewController.h"
 #import "DIECategoryViewController.h"
 
+#import "MMDrawerController.h"
 #import "UIViewController+MMDrawerController.h"
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 
 @interface DIECenterViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 {
@@ -67,7 +68,18 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    NSLog(@"%@", change);
+    NSValue *value = change[NSKeyValueChangeNewKey];
+    CGPoint point = value.CGPointValue;
+    
+    if (_currentPage == 0 && point.x <= self.view.frame.size.width) {
+        _scrollView.panGestureRecognizer.enabled = NO;
+        _scrollView.panGestureRecognizer.enabled = YES;
+    }
+    else {
+        MMDrawerController *drawerCtrl = (MMDrawerController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        drawerCtrl.panGestureRecognizer.enabled = NO;
+        drawerCtrl.panGestureRecognizer.enabled = YES;
+    }
 }
 
 //查找scrollView

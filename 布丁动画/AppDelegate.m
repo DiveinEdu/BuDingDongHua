@@ -57,7 +57,7 @@
     _drawerCtrl = drawerCtrl;
     
     //支持打开抽屉的手势类型
-    drawerCtrl.openDrawerGestureModeMask = MMOpenDrawerGestureModePanningNavigationBar | MMOpenDrawerGestureModePanningCenterView;
+    drawerCtrl.openDrawerGestureModeMask = MMOpenDrawerGestureModePanningCenterView | MMOpenDrawerGestureModePanningNavigationBar;
     //支持关闭抽屉的手势类型
     drawerCtrl.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
 
