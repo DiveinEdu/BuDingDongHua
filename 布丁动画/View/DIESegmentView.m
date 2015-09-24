@@ -22,7 +22,7 @@
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     if (titleArray.count) {
         CGFloat width = self.bounds.size.width / _titleArray.count;
-        CGFloat height = self.bounds.size.height - 1;
+        CGFloat height = self.bounds.size.height - 2;
         
         //布局标题
         for (NSInteger i = 0; i < titleArray.count; i++) {
@@ -35,12 +35,12 @@
                 label.textColor = [UIColor orangeColor];
             }
             else {
-                label.textColor = [UIColor whiteColor];
+                label.textColor = [UIColor blackColor];
             }
         }
         
         //指示视图
-        _indicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, height, width, 1)];
+        _indicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, height, width, 2)];
         _indicatorView.backgroundColor = [UIColor orangeColor];
         [self addSubview:_indicatorView];
         
@@ -55,19 +55,7 @@
         
         CGFloat width = self.bounds.size.width / _titleArray.count;
         NSInteger index = point.x / width;
-        
-        CGRect rect = _indicatorView.frame;
-        rect.origin.x = width * index;
-        _indicatorView.frame = rect;
-        
-        UILabel *deselectedLabel = [self.subviews objectAtIndex:_selectedIndex];
-        deselectedLabel.textColor = [UIColor whiteColor];
-        
-        UILabel *selectedLabel = [self.subviews objectAtIndex:index];
-        selectedLabel.textColor = [UIColor orangeColor];
-        
-        //改变当前选中的索引
-        _selectedIndex = index;
+        self.selectedIndex = index;
         
         if (_didValueChanged) {
             _didValueChanged(self);
@@ -77,7 +65,7 @@
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     UILabel *deselectedLabel = [self.subviews objectAtIndex:_selectedIndex];
-    deselectedLabel.textColor = [UIColor whiteColor];
+    deselectedLabel.textColor = [UIColor blackColor];
     
     UILabel *selectedLabel = [self.subviews objectAtIndex:selectedIndex];
     selectedLabel.textColor = [UIColor orangeColor];

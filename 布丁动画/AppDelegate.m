@@ -19,7 +19,7 @@
 
 #import "ViewPagerController.h"
 
-@interface AppDelegate () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIGestureRecognizerDelegate>
+@interface AppDelegate ()
 {
     MMDrawerController *_drawerCtrl;
     DIECenterViewController *_centerCtrl;
