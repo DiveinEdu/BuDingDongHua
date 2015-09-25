@@ -40,6 +40,8 @@
             weakSelf.currentPage = sender.selectedIndex;
         };
         self.navigationItem.titleView = _titleView;
+        
+        self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
     return self;

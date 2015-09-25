@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		181D28F01BB3E517007DD1A0 /* DIESegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D28EF1BB3E517007DD1A0 /* DIESegmentView.m */; };
+		185548A91BB4F7B80060985E /* DIECategoryFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548A81BB4F7B80060985E /* DIECategoryFlowLayout.m */; };
+		185548AD1BB524F20060985E /* DIEToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548AC1BB524F20060985E /* DIEToolkit.m */; };
+		185548B01BB52B190060985E /* DIEDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548AF1BB52B190060985E /* DIEDetailViewController.m */; };
 		1857AEFA1BB0ED31001BA627 /* DIEUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */; };
 		186DDFE21BAEEF0D006FA3B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE11BAEEF0D006FA3B1 /* main.m */; };
 		186DDFE51BAEEF0D006FA3B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE41BAEEF0D006FA3B1 /* AppDelegate.m */; };
@@ -52,6 +55,12 @@
 /* Begin PBXFileReference section */
 		181D28EE1BB3E517007DD1A0 /* DIESegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIESegmentView.h; sourceTree = "<group>"; };
 		181D28EF1BB3E517007DD1A0 /* DIESegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIESegmentView.m; sourceTree = "<group>"; };
+		185548A71BB4F7B80060985E /* DIECategoryFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIECategoryFlowLayout.h; sourceTree = "<group>"; };
+		185548A81BB4F7B80060985E /* DIECategoryFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIECategoryFlowLayout.m; sourceTree = "<group>"; };
+		185548AB1BB524F20060985E /* DIEToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEToolkit.h; sourceTree = "<group>"; };
+		185548AC1BB524F20060985E /* DIEToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEToolkit.m; sourceTree = "<group>"; };
+		185548AE1BB52B190060985E /* DIEDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEDetailViewController.h; sourceTree = "<group>"; };
+		185548AF1BB52B190060985E /* DIEDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEDetailViewController.m; sourceTree = "<group>"; };
 		1857AEF81BB0ED31001BA627 /* DIEUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEUserInfoView.h; sourceTree = "<group>"; };
 		1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEUserInfoView.m; sourceTree = "<group>"; };
 		186DDFDD1BAEEF0D006FA3B1 /* 布丁动画.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "布丁动画.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +145,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		185548A61BB4F7AA0060985E /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				185548A71BB4F7B80060985E /* DIECategoryFlowLayout.h */,
+				185548A81BB4F7B80060985E /* DIECategoryFlowLayout.m */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		185548AA1BB524CB0060985E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				185548AB1BB524F20060985E /* DIEToolkit.h */,
+				185548AC1BB524F20060985E /* DIEToolkit.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		186DDFD41BAEEF0C006FA3B1 = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +184,8 @@
 			children = (
 				186DDFE31BAEEF0D006FA3B1 /* AppDelegate.h */,
 				186DDFE41BAEEF0D006FA3B1 /* AppDelegate.m */,
+				185548AA1BB524CB0060985E /* Utils */,
+				185548A61BB4F7AA0060985E /* Layout */,
 				186DE0281BAF81B3006FA3B1 /* View */,
 				186DE0061BAEF582006FA3B1 /* Controller */,
 				186DDFF71BAEF296006FA3B1 /* Library */,
@@ -218,6 +247,8 @@
 				186DE0841BB034AF006FA3B1 /* DIERecommendViewController.m */,
 				186DE0861BB034BF006FA3B1 /* DIECategoryViewController.h */,
 				186DE0871BB034BF006FA3B1 /* DIECategoryViewController.m */,
+				185548AE1BB52B190060985E /* DIEDetailViewController.h */,
+				185548AF1BB52B190060985E /* DIEDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -380,9 +411,12 @@
 				186DE04B1BAF820E006FA3B1 /* MASViewConstraint.m in Sources */,
 				186DE0041BAEF296006FA3B1 /* MMDrawerVisualState.m in Sources */,
 				186DE04A1BAF820E006FA3B1 /* MASViewAttribute.m in Sources */,
+				185548AD1BB524F20060985E /* DIEToolkit.m in Sources */,
 				186DDFE51BAEEF0D006FA3B1 /* AppDelegate.m in Sources */,
 				186DE0021BAEF296006FA3B1 /* MMDrawerBarButtonItem.m in Sources */,
 				186DE0091BAEF607006FA3B1 /* DIELeftViewController.m in Sources */,
+				185548B01BB52B190060985E /* DIEDetailViewController.m in Sources */,
+				185548A91BB4F7B80060985E /* DIECategoryFlowLayout.m in Sources */,
 				186DE0881BB034BF006FA3B1 /* DIECategoryViewController.m in Sources */,
 				186DE0461BAF820E006FA3B1 /* MASCompositeConstraint.m in Sources */,
 				186DE0481BAF820E006FA3B1 /* MASConstraintMaker.m in Sources */,
