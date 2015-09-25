@@ -10,6 +10,9 @@
 #import "DIEDetailViewController.h"
 
 #import "DIECategoryFlowLayout.h"
+#import "DIECategoryCell.h"
+
+#import "UIImageView+WebCache.h"
 
 @interface DIECategoryViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -23,10 +26,13 @@
     if (_collectionView == nil) {
         DIECategoryFlowLayout *flowLayout = [DIECategoryFlowLayout new];
         _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+        
+        _collectionView.backgroundColor = [UIColor whiteColor];
+        
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.contentInset = UIEdgeInsetsMake(64, 0, 49, 0);
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+        [_collectionView registerClass:[DIECategoryCell class] forCellWithReuseIdentifier:@"cell"];
     }
     
     return _collectionView;
@@ -49,10 +55,11 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    DIECategoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    NSURL *url = [NSURL URLWithString:@"http://7d9rdc.com1.z0.glb.clouddn.com/@/category/541b9347acacae05708b4685/6421dbbbb51d74df3084d725a855bf15.jpg"];
+    [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"timeline_subject_add_icon"]];
+    cell.titleLabel.text = @"7月新番";
     
-    CGFloat hue = indexPath.item * 1.0 / [self collectionView:collectionView numberOfItemsInSection:indexPath.section];
-    cell.backgroundColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
     return cell;
 }
 
