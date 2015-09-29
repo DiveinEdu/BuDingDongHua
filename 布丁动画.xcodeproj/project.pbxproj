@@ -28,6 +28,9 @@
 		185548DF1BB536710060985E /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548D11BB536710060985E /* UIView+WebCacheOperation.m */; };
 		185548E21BB5377D0060985E /* timeline_subject_add_icon@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 185548E01BB5377D0060985E /* timeline_subject_add_icon@2x~iphone.png */; };
 		185548E31BB5377D0060985E /* timeline_subject_add_icon~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 185548E11BB5377D0060985E /* timeline_subject_add_icon~iphone.png */; };
+		185548E81BB982530060985E /* DIEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548E71BB982530060985E /* DIEDataManager.m */; };
+		185548F21BB9881E0060985E /* categoryData.json in Resources */ = {isa = PBXBuildFile; fileRef = 185548F11BB9881E0060985E /* categoryData.json */; };
+		185548F51BB98DC10060985E /* DIECategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548F41BB98DC10060985E /* DIECategoryModel.m */; };
 		1857AEFA1BB0ED31001BA627 /* DIEUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */; };
 		186DDFE21BAEEF0D006FA3B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE11BAEEF0D006FA3B1 /* main.m */; };
 		186DDFE51BAEEF0D006FA3B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE41BAEEF0D006FA3B1 /* AppDelegate.m */; };
@@ -111,6 +114,11 @@
 		185548D11BB536710060985E /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		185548E01BB5377D0060985E /* timeline_subject_add_icon@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_subject_add_icon@2x~iphone.png"; sourceTree = "<group>"; };
 		185548E11BB5377D0060985E /* timeline_subject_add_icon~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_subject_add_icon~iphone.png"; sourceTree = "<group>"; };
+		185548E61BB982530060985E /* DIEDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEDataManager.h; sourceTree = "<group>"; };
+		185548E71BB982530060985E /* DIEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEDataManager.m; sourceTree = "<group>"; };
+		185548F11BB9881E0060985E /* categoryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categoryData.json; sourceTree = "<group>"; };
+		185548F31BB98DC10060985E /* DIECategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIECategoryModel.h; sourceTree = "<group>"; };
+		185548F41BB98DC10060985E /* DIECategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIECategoryModel.m; sourceTree = "<group>"; };
 		1857AEF81BB0ED31001BA627 /* DIEUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEUserInfoView.h; sourceTree = "<group>"; };
 		1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEUserInfoView.m; sourceTree = "<group>"; };
 		186DDFDD1BAEEF0D006FA3B1 /* 布丁动画.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "布丁动画.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +257,32 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		185548E41BB97D800060985E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				185548F31BB98DC10060985E /* DIECategoryModel.h */,
+				185548F41BB98DC10060985E /* DIECategoryModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		185548E51BB981710060985E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				185548E61BB982530060985E /* DIEDataManager.h */,
+				185548E71BB982530060985E /* DIEDataManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		185548F01BB9881E0060985E /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				185548F11BB9881E0060985E /* categoryData.json */,
+			);
+			path = TestData;
+			sourceTree = "<group>";
+		};
 		186DDFD41BAEEF0C006FA3B1 = {
 			isa = PBXGroup;
 			children = (
@@ -270,8 +304,11 @@
 			children = (
 				186DDFE31BAEEF0D006FA3B1 /* AppDelegate.h */,
 				186DDFE41BAEEF0D006FA3B1 /* AppDelegate.m */,
+				185548F01BB9881E0060985E /* TestData */,
 				185548AA1BB524CB0060985E /* Utils */,
 				185548A61BB4F7AA0060985E /* Layout */,
+				185548E51BB981710060985E /* Manager */,
+				185548E41BB97D800060985E /* Model */,
 				186DE0281BAF81B3006FA3B1 /* View */,
 				186DE0061BAEF582006FA3B1 /* Controller */,
 				186DDFF71BAEF296006FA3B1 /* Library */,
@@ -485,6 +522,7 @@
 				186DE00F1BAEFA8F006FA3B1 /* side_menu_bg.jpg in Resources */,
 				186DDFED1BAEEF0D006FA3B1 /* Assets.xcassets in Resources */,
 				185548E21BB5377D0060985E /* timeline_subject_add_icon@2x~iphone.png in Resources */,
+				185548F21BB9881E0060985E /* categoryData.json in Resources */,
 				186DE01D1BAF8109006FA3B1 /* side_menu_icon_cache@2x~iphone.png in Resources */,
 				186DE0231BAF8109006FA3B1 /* side_menu_icon_promotor@2x~iphone.png in Resources */,
 				186DE0801BAFFBD0006FA3B1 /* side_menu_icon_cache~iphone.png in Resources */,
@@ -524,6 +562,8 @@
 				185548DB1BB536710060985E /* UIImage+GIF.m in Sources */,
 				186DE07B1BAFF649006FA3B1 /* DIETimeLineViewController.m in Sources */,
 				186DE04F1BAF820E006FA3B1 /* ViewController+MASAdditions.m in Sources */,
+				185548E81BB982530060985E /* DIEDataManager.m in Sources */,
+				185548F51BB98DC10060985E /* DIECategoryModel.m in Sources */,
 				186DE0471BAF820E006FA3B1 /* MASConstraint.m in Sources */,
 				186DE0051BAEF296006FA3B1 /* UIViewController+MMDrawerController.m in Sources */,
 				185548DE1BB536710060985E /* UIImageView+WebCache.m in Sources */,

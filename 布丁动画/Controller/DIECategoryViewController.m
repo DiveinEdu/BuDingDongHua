@@ -12,11 +12,16 @@
 #import "DIECategoryFlowLayout.h"
 #import "DIECategoryCell.h"
 
+#import "DIEDataManager.h"
+#import "DIECategoryModel.h"
+
 #import "UIImageView+WebCache.h"
 
 @interface DIECategoryViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 {
     UICollectionView *_collectionView;
+    
+    NSArray *_categoryArray;
 }
 @end
 
@@ -40,25 +45,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //获取分类数据
+    _categoryArray = [DIEDataManager sharedManager].categoryArray;
         
     [self collectionView];
     [self.view addSubview:_collectionView];
 }
 
 #pragma mark - UICollectionViewDataSource
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 2;
-}
+//- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+//    return 2;
+//}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 20;
+    return _categoryArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DIECategoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    NSURL *url = [NSURL URLWithString:@"http://7d9rdc.com1.z0.glb.clouddn.com/@/category/541b9347acacae05708b4685/6421dbbbb51d74df3084d725a855bf15.jpg"];
+    
+    NSDictionary *dict = _categoryArray[indexPath.item];
+    NSDictionary *imageDict = dict[@"image"];
+    
+    NSURL *url = [NSURL URLWithString:imageDict[@"url"]];
+    
     [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"timeline_subject_add_icon"]];
-    cell.titleLabel.text = @"7月新番";
+    
+    cell.titleLabel.text = dict[@"name"];
+    
+//    //获取一个类别的信息
+//    DIECategoryModel *category = _categoryArray[indexPath.item];
+//    [cell.imageView sd_setImageWithURL:category.url placeholderImage:[UIImage imageNamed:@"timeline_subject_add_icon"]];
+//    //获取类别的名称
+//    cell.titleLabel.text = category.name;
     
     return cell;
 }
