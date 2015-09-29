@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSString *name;//name
 @property (nonatomic, assign) CGFloat height;//image -> height
 @property (nonatomic, assign) CGFloat width;//image -> width
+/// 对应图片的地址
 @property (nonatomic, copy) NSURL *url;
 //字典和数据模型对象相互转换
 - (instancetype)initWithJSONDictionary:(NSDictionary *)dictionary;

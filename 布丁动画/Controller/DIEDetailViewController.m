@@ -7,8 +7,9 @@
 //
 
 #import "DIEDetailViewController.h"
+#import "DIECategoryDetailCell.h"
 
-@interface DIEDetailViewController ()
+@interface DIEDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -18,21 +19,26 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor purpleColor];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    [tableView registerClass:[DIECategoryDetailCell class] forCellReuseIdentifier:@"cell"];
+    tableView.backgroundColor = [UIColor clearColor];
+//    tableView.contentInset = UIEdgeInsetsMake(0, 10, 0, 10);
+//    tableView.contentSize = CGSizeMake(tableView.contentSize.width - 20, tableView.contentSize.height);
+    [self.view addSubview:tableView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DIECategoryDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    cell.backgroundColor = [UIColor whiteColor];
+    
+    return cell;
 }
-*/
 
 @end
