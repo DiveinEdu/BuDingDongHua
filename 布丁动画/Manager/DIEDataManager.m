@@ -37,8 +37,9 @@
 
 - (void)parseCategoryData:(NSData *)data {
     NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    
 //    //转换整个JSON数组
-//    array = [DIECategoryModel modelsFromJSONArray:array];
+    array = [DIECategoryModel modelsFromJSONArray:array];
     [_categoryArray addObjectsFromArray:array];
 }
 

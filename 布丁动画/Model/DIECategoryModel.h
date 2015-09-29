@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DIECategoryModel : NSObject
+#import "Mantle.h"
+
+@interface DIECategoryModel : MTLModel <MTLJSONSerializing>
 @property (nonatomic, copy) NSString *categoryId;//_id
 @property (nonatomic, assign) NSInteger  animeCount;//animeCount
 @property (nonatomic, copy) NSString *name;//name

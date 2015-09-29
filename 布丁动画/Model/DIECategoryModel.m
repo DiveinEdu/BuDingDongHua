@@ -18,42 +18,59 @@ NSString * const kCategoryImageHeight = @"height";
 NSString * const kCategoryImageUrl = @"url";
 
 @implementation DIECategoryModel
-- (instancetype)initWithJSONDictionary:(NSDictionary *)dictionary {
-    if (self = [super init]) {
-        _categoryId = dictionary[kCategoryId];
-        _name = dictionary[kCategoryName];
-        _animeCount = [dictionary[kCategoryAnimeCount] integerValue];
-        NSDictionary *imageDict = dictionary[kCategoryImage];
-        _width = [imageDict[kCategoryImageWidth] floatValue];
-        _height = [imageDict[kCategoryImageHeight] floatValue];
-        //获取图片地址并转换类型
-        _url = [NSURL URLWithString:imageDict[kCategoryImageUrl]];
-    }
-    return self;
-}
+//- (instancetype)initWithJSONDictionary:(NSDictionary *)dictionary {
+//    if (self = [super init]) {
+//        _categoryId = dictionary[kCategoryId];
+//        _name = dictionary[kCategoryName];
+//        _animeCount = [dictionary[kCategoryAnimeCount] integerValue];
+//        NSDictionary *imageDict = dictionary[kCategoryImage];
+//        _width = [imageDict[kCategoryImageWidth] floatValue];
+//        _height = [imageDict[kCategoryImageHeight] floatValue];
+//        //获取图片地址并转换类型
+//        _url = [NSURL URLWithString:imageDict[kCategoryImageUrl]];
+//    }
+//    return self;
+//}
+//
+//- (NSDictionary *)JSONDictionary {
+//    return @{kCategoryId:_categoryId,
+//             kCategoryName:_name,
+//             kCategoryImage:@{
+//                kCategoryImageWidth:@(_width),
+//                kCategoryImageHeight:@(_height),
+//                kCategoryImageUrl:_url.absoluteString
+//             }
+//            };
+//}
+//
+//+ (instancetype)modelFromJSONDictionary:(NSDictionary *)dictionary {
+//    return [[self alloc] initWithJSONDictionary:dictionary];
+//}
+//
+//+ (NSArray *)modelsFromJSONArray:(NSArray *)array {
+//    NSMutableArray *models = [NSMutableArray array];
+//    for (NSDictionary *dict in array) {
+//        [models addObject:[self modelFromJSONDictionary:dict]];
+//    }
+//    return [models copy];
+//}
 
-- (NSDictionary *)JSONDictionary {
-    return @{kCategoryId:_categoryId,
-             kCategoryName:_name,
-             kCategoryImage:@{
-                kCategoryImageWidth:@(_width),
-                kCategoryImageHeight:@(_height),
-                kCategoryImageUrl:_url.absoluteString
-             }
-            };
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+        @"categoryId":@"_id",
+        @"animeCount":@"animeCount",
+        @"name":@"name",
+        @"width":@"image.width",
+        @"height":@"image.height",
+        @"url":@"image.url"
+    };
 }
 
 + (instancetype)modelFromJSONDictionary:(NSDictionary *)dictionary {
-    return [[self alloc] initWithJSONDictionary:dictionary];
+    return [MTLJSONAdapter modelOfClass:[self class] fromJSONDictionary:dictionary error:nil];
 }
 
 + (NSArray *)modelsFromJSONArray:(NSArray *)array {
-    NSMutableArray *models = [NSMutableArray array];
-    for (NSDictionary *dict in array) {
-        [models addObject:[self modelFromJSONDictionary:dict]];
-    }
-    return [models copy];
+    return [MTLJSONAdapter modelsOfClass:[DIECategoryModel class] fromJSONArray:array error:nil];
 }
-
-
 @end

@@ -65,20 +65,20 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DIECategoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    NSDictionary *dict = _categoryArray[indexPath.item];
-    NSDictionary *imageDict = dict[@"image"];
+//    NSDictionary *dict = _categoryArray[indexPath.item];
+//    NSDictionary *imageDict = dict[@"image"];
+//    
+//    NSURL *url = [NSURL URLWithString:imageDict[@"url"]];
+//    
+//    [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"timeline_subject_add_icon"]];
+//    
+//    cell.titleLabel.text = dict[@"name"];
     
-    NSURL *url = [NSURL URLWithString:imageDict[@"url"]];
-    
-    [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"timeline_subject_add_icon"]];
-    
-    cell.titleLabel.text = dict[@"name"];
-    
-//    //获取一个类别的信息
-//    DIECategoryModel *category = _categoryArray[indexPath.item];
-//    [cell.imageView sd_setImageWithURL:category.url placeholderImage:[UIImage imageNamed:@"timeline_subject_add_icon"]];
-//    //获取类别的名称
-//    cell.titleLabel.text = category.name;
+    //获取一个类别的信息
+    DIECategoryModel *category = _categoryArray[indexPath.item];
+    [cell.imageView sd_setImageWithURL:category.url placeholderImage:[UIImage imageNamed:@"timeline_subject_add_icon"]];
+    //获取类别的名称
+    cell.titleLabel.text = category.name;
     
     return cell;
 }
