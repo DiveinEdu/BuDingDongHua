@@ -70,6 +70,7 @@
 		185549A51BBA5FEE0060985E /* DIENetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 185549A41BBA5FEE0060985E /* DIENetworkManager.m */; };
 		1857AEFA1BB0ED31001BA627 /* DIEUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */; };
 		185A223B1BBBD7C100BA141D /* DIEAnimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A223A1BBBD7C100BA141D /* DIEAnimeModel.m */; };
+		185A223E1BBBDE1100BA141D /* DIEAnimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A223D1BBBDE1100BA141D /* DIEAnimeViewController.m */; };
 		186DDFE21BAEEF0D006FA3B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE11BAEEF0D006FA3B1 /* main.m */; };
 		186DDFE51BAEEF0D006FA3B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE41BAEEF0D006FA3B1 /* AppDelegate.m */; };
 		186DDFED1BAEEF0D006FA3B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186DDFEC1BAEEF0D006FA3B1 /* Assets.xcassets */; };
@@ -241,6 +242,8 @@
 		1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEUserInfoView.m; sourceTree = "<group>"; };
 		185A22391BBBD7C100BA141D /* DIEAnimeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEAnimeModel.h; sourceTree = "<group>"; };
 		185A223A1BBBD7C100BA141D /* DIEAnimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEAnimeModel.m; sourceTree = "<group>"; };
+		185A223C1BBBDE1100BA141D /* DIEAnimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEAnimeViewController.h; sourceTree = "<group>"; };
+		185A223D1BBBDE1100BA141D /* DIEAnimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEAnimeViewController.m; sourceTree = "<group>"; };
 		186DDFDD1BAEEF0D006FA3B1 /* 布丁动画.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "布丁动画.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		186DDFE11BAEEF0D006FA3B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		186DDFE31BAEEF0D006FA3B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -618,6 +621,8 @@
 				186DE0871BB034BF006FA3B1 /* DIECategoryViewController.m */,
 				185548AE1BB52B190060985E /* DIEDetailViewController.h */,
 				185548AF1BB52B190060985E /* DIEDetailViewController.m */,
+				185A223C1BBBDE1100BA141D /* DIEAnimeViewController.h */,
+				185A223D1BBBDE1100BA141D /* DIEAnimeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -839,6 +844,7 @@
 				185549961BBA5F940060985E /* AFURLRequestSerialization.m in Sources */,
 				185548D61BB536710060985E /* SDWebImageDownloader.m in Sources */,
 				1855499C1BBA5F940060985E /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				185A223E1BBBDE1100BA141D /* DIEAnimeViewController.m in Sources */,
 				185548DC1BB536710060985E /* UIImage+MultiFormat.m in Sources */,
 				186DE02B1BAF81D0006FA3B1 /* DIELeftTableViewCell.m in Sources */,
 				186DE04C1BAF820E006FA3B1 /* NSArray+MASAdditions.m in Sources */,

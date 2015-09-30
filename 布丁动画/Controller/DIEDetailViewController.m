@@ -7,13 +7,21 @@
 //
 
 #import "DIEDetailViewController.h"
+#import "DIEAnimeViewController.h"
+
 #import "DIECategoryDetailCell.h"
 
-#import "DIENotificationConfig.h"
 #import "DIEDataManager.h"
+#import "DIEAnimeModel.h"
+
+#import "DIENotificationConfig.h"
 
 @interface DIEDetailViewController () <UITableViewDataSource, UITableViewDelegate>
-
+{
+    UITableView *_tableView;
+    
+    NSArray *_animeArray;
+}
 @end
 
 @implementation DIEDetailViewController
@@ -35,22 +43,32 @@
 //    tableView.contentInset = UIEdgeInsetsMake(0, 10, 0, 10);
 //    tableView.contentSize = CGSizeMake(tableView.contentSize.width - 20, tableView.contentSize.height);
     [self.view addSubview:tableView];
+    _tableView = tableView;
 }
 
 - (void)didUpdateDetail:(NSNotification *)notification {
-    NSArray *array = notification.userInfo[kDIENotificationUserInfo];
-    NSLog(@"%@", array[0]);
+    _animeArray = notification.userInfo[kDIENotificationUserInfo];
+    [_tableView reloadData];
 }
 
+#pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return _animeArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DIECategoryDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    cell.backgroundColor = [UIColor whiteColor];
+    
+    DIEAnimeModel *anime = _animeArray[indexPath.row];
+    cell.textLabel.text = anime.name;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DIEAnimeViewController *animeCtrl = [[DIEAnimeViewController alloc] init];
+    animeCtrl.anime = _animeArray[indexPath.row];
+    [self.navigationController pushViewController:animeCtrl animated:YES];
 }
 
 - (void)dealloc {
