@@ -13,4 +13,5 @@
 
 + (instancetype)sharedManager;
 
+- (void)updateCategory;
 @end

@@ -6,7 +6,9 @@
 //  Copyright © 2015年 戴维营教育. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#import "DIEApiConfig.h"
 
 #define kDIEIsIPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define kDIEIsIPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
@@ -23,5 +25,10 @@
 #define kDIEIsIPhone6P (kDIEIsIPhone && kDIEScreenMaxLength == 736.0)
 
 @interface DIEToolkit : NSObject
++ (NSDictionary *)deviceParams;
++ (NSDictionary *)appParams;
 
++ (NSDictionary *)fullParams:(NSDictionary *)params;
+
++ (NSString *)categoryApi;
 @end

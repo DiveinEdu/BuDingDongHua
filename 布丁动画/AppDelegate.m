@@ -17,8 +17,6 @@
 #import "DIERecommendViewController.h"
 #import "DIECategoryViewController.h"
 
-#import "ViewPagerController.h"
-
 @interface AppDelegate ()
 {
     MMDrawerController *_drawerCtrl;

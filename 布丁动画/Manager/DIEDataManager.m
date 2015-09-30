@@ -9,9 +9,16 @@
 #import "DIEDataManager.h"
 #import "DIECategoryModel.h"
 
+#import "DIENetworkManager.h"
+
+#import "DIENotificationConfig.h"
+
 @interface DIEDataManager ()
 {
     NSMutableArray *_categoryArray;
+    
+    NSInteger _categoryOffset;
+    NSInteger _categoryLimit;
 }
 @end
 
@@ -30,26 +37,28 @@
 - (instancetype)init {
     if (self = [super init]) {
         _categoryArray = [NSMutableArray array];
+        _categoryLimit = 24;
     }
     
     return self;
 }
 
-- (void)parseCategoryData:(NSData *)data {
-    NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-    
+- (NSArray *)parseCategoryData:(NSArray *)array {
 //    //转换整个JSON数组
-    array = [DIECategoryModel modelsFromJSONArray:array];
-    [_categoryArray addObjectsFromArray:array];
+    return [DIECategoryModel modelsFromJSONArray:array];
 }
 
 - (NSArray *)categoryArray {
-//    //获取Main Bundle下文件路径，如果不存在，返回nil
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"categoryData" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-//    //解析数据
-    [self parseCategoryData:data];
-    
     return [_categoryArray copy];
+}
+
+- (void)updateCategory {
+    [DIENetworkManager categoryWithOffset:_categoryOffset limit:_categoryLimit completion:^(id responseObject, DIEError *error) {
+        NSArray *array = [self parseCategoryData:responseObject];
+        [_categoryArray removeAllObjects];
+        [_categoryArray addObjectsFromArray:array];
+        
+        DIEPost(kDIECategoryUpdateNotif, nil);
+    }];
 }
 @end

@@ -15,6 +15,8 @@
 #import "DIEDataManager.h"
 #import "DIECategoryModel.h"
 
+#import "DIENotificationConfig.h"
+
 #import "UIImageView+WebCache.h"
 
 @interface DIECategoryViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -45,12 +47,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+        
+    DIEAddObserver(self, @selector(didUpdate), kDIECategoryUpdateNotif, nil);
     
     //获取分类数据
-    _categoryArray = [DIEDataManager sharedManager].categoryArray;
-        
+    [[DIEDataManager sharedManager] updateCategory];
+    
     [self collectionView];
     [self.view addSubview:_collectionView];
+}
+
+- (void)didUpdate {
+    _categoryArray = [DIEDataManager sharedManager].categoryArray;
+    [_collectionView reloadData];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -91,5 +100,9 @@
     [self.navigationController pushViewController:detailCtrl animated:YES];
 //    NSLog(@"%@", self.parentViewController);
 //    [self.parentViewController.navigationController pushViewController:detailCtrl animated:YES];
+}
+
+- (void)dealloc {
+    DIERemoveObserver(self, kDIECategoryUpdateNotif, nil);
 }
 @end
