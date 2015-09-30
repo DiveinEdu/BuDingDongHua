@@ -28,4 +28,26 @@
         completion(nil, err);
     }];
 }
+
++ (void)categoryDetailWithId:(NSString *)categoryId limit:(NSInteger)limit completion:(CompletionType)completion {
+    NSDictionary *params = [DIEToolkit fullParams:@{
+                                @"limit":@(limit),
+                            }];
+    [[AFHTTPSessionManager manager] GET:[DIEToolkit categoryDetailApiWithId:categoryId] parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        completion(responseObject, nil);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        DIEError *err = [[DIEError alloc] initWithError:error];
+        completion(nil, err);
+    }];
+}
+
++ (void)animeWithId:(NSString *)animeId completion:(CompletionType)completion {
+    NSDictionary *params = [DIEToolkit fullParams:nil];
+    [[AFHTTPSessionManager manager] GET:[DIEToolkit userAnimeApiWithId:animeId] parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        completion(responseObject, nil);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        DIEError *err = [[DIEError alloc] initWithError:error];
+        completion(nil, err);
+    }];
+}
 @end

@@ -14,4 +14,6 @@
 + (instancetype)sharedManager;
 
 - (void)updateCategory;
+- (void)categoryDetailWithId:(NSString *)categoryId;
+- (void)currentAnimeWithId:(NSString *)animeId;
 @end

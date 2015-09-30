@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DIEDetailViewController : UIViewController
+#import "DIECategoryModel.h"
 
+@interface DIEDetailViewController : UIViewController
+@property (nonatomic, strong) DIECategoryModel *category;
 @end

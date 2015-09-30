@@ -8,4 +8,8 @@
 
 #import "DIENotificationConfig.h"
 
+NSString * const kDIENotificationUserInfo = @"userInfo";
+
 NSString * const kDIECategoryUpdateNotif = @"kDIECategoryUpdateNotif";
+NSString * const kDIECategoryDetailNotif = @"kDIECategoryDetailNotif";
+NSString * const kDIEUserAnimeNotif = @"kDIEUserAnimeNotif";

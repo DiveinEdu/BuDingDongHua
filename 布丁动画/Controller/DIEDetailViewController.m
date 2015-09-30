@@ -9,6 +9,9 @@
 #import "DIEDetailViewController.h"
 #import "DIECategoryDetailCell.h"
 
+#import "DIENotificationConfig.h"
+#import "DIEDataManager.h"
+
 @interface DIEDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
@@ -17,6 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    DIEAddObserver(self, @selector(didUpdateDetail:), kDIECategoryDetailNotif, nil);
+    
+    [[DIEDataManager sharedManager] categoryDetailWithId:_category.categoryId];
     
     self.view.backgroundColor = [UIColor purpleColor];
     
@@ -30,6 +37,11 @@
     [self.view addSubview:tableView];
 }
 
+- (void)didUpdateDetail:(NSNotification *)notification {
+    NSArray *array = notification.userInfo[kDIENotificationUserInfo];
+    NSLog(@"%@", array[0]);
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
 }
@@ -41,4 +53,7 @@
     return cell;
 }
 
+- (void)dealloc {
+    DIERemoveObserver(self, kDIECategoryDetailNotif, nil);
+}
 @end

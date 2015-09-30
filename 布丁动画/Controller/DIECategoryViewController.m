@@ -17,7 +17,10 @@
 
 #import "DIENotificationConfig.h"
 
+#import "DIEToolkit.h"
+
 #import "UIImageView+WebCache.h"
+#import "AFNetworking.h"
 
 @interface DIECategoryViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -47,11 +50,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
+    
     DIEAddObserver(self, @selector(didUpdate), kDIECategoryUpdateNotif, nil);
     
     //获取分类数据
     [[DIEDataManager sharedManager] updateCategory];
+//    NSDictionary *dict = @{@"offset":@0, @"limit":@24};
+//    
+//    [[AFHTTPSessionManager manager] GET:[DIEToolkit categoryApi] parameters:[DIEToolkit fullParams:dict] success:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"%@", responseObject);
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"%@", error);
+//    }];
     
     [self collectionView];
     [self.view addSubview:_collectionView];
@@ -97,6 +107,7 @@
     NSLog(@"%ld, %ld", indexPath.section, indexPath.item);
     
     DIEDetailViewController *detailCtrl = [[DIEDetailViewController alloc] init];
+    detailCtrl.category = _categoryArray[indexPath.item];
     [self.navigationController pushViewController:detailCtrl animated:YES];
 //    NSLog(@"%@", self.parentViewController);
 //    [self.parentViewController.navigationController pushViewController:detailCtrl animated:YES];

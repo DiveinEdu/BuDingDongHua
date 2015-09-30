@@ -19,8 +19,8 @@
 /// 对应图片的地址
 @property (nonatomic, copy) NSURL *url;
 //字典和数据模型对象相互转换
-- (instancetype)initWithJSONDictionary:(NSDictionary *)dictionary;
-- (NSDictionary *)JSONDictionary;
+//- (instancetype)initWithJSONDictionary:(NSDictionary *)dictionary;
+//- (NSDictionary *)JSONDictionary;
 //简便的对象创建方法
 + (instancetype)modelFromJSONDictionary:(NSDictionary *)dictionary;
 + (NSArray *)modelsFromJSONArray:(NSArray *)array;

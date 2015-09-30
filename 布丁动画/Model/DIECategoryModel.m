@@ -71,7 +71,7 @@ NSString * const kCategoryImageUrl = @"url";
 }
 
 + (NSArray *)modelsFromJSONArray:(NSArray *)array {
-    return [MTLJSONAdapter modelsOfClass:[DIECategoryModel class] fromJSONArray:array error:nil];
+    return [MTLJSONAdapter modelsOfClass:[self class] fromJSONArray:array error:nil];
 }
 
 + (NSValueTransformer *)urlJSONTransformer {

@@ -7,9 +7,10 @@
 //
 
 #import "DIEDataManager.h"
-#import "DIECategoryModel.h"
-
 #import "DIENetworkManager.h"
+
+#import "DIECategoryModel.h"
+#import "DIEAnimeModel.h"
 
 #import "DIENotificationConfig.h"
 
@@ -43,9 +44,9 @@
     return self;
 }
 
-- (NSArray *)parseCategoryData:(NSArray *)array {
+- (NSArray *)parseData:(NSArray *)array withModel:(Class)class{
 //    //转换整个JSON数组
-    return [DIECategoryModel modelsFromJSONArray:array];
+    return [class modelsFromJSONArray:array];
 }
 
 - (NSArray *)categoryArray {
@@ -54,11 +55,22 @@
 
 - (void)updateCategory {
     [DIENetworkManager categoryWithOffset:_categoryOffset limit:_categoryLimit completion:^(id responseObject, DIEError *error) {
-        NSArray *array = [self parseCategoryData:responseObject];
+        NSArray *array = [self parseData:responseObject withModel:[DIECategoryModel class]];
         [_categoryArray removeAllObjects];
         [_categoryArray addObjectsFromArray:array];
         
-        DIEPost(kDIECategoryUpdateNotif, nil);
+        DIEPost(kDIECategoryUpdateNotif, nil, nil);
     }];
+}
+
+- (void)categoryDetailWithId:(NSString *)categoryId {
+    [DIENetworkManager categoryDetailWithId:categoryId limit:24 completion:^(id responseObject, DIEError *error) {
+        NSArray *array = [self parseData:responseObject withModel:[DIEAnimeModel class]];
+        DIEPost(kDIECategoryDetailNotif, nil, @{kDIENotificationUserInfo:array});
+    }];
+}
+
+- (void)currentAnimeWithId:(NSString *)animeId {
+    
 }
 @end
