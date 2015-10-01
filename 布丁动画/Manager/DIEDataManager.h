@@ -17,4 +17,5 @@
 - (void)categoryDetailWithId:(NSString *)categoryId;
 - (void)currentAnimeWithId:(NSString *)animeId;
 - (void)episodeWithAnimeId:(NSString *)animeId index:(NSInteger)index;
+- (void)sectionsWithVideoId:(NSString *)videoId quality:(NSInteger)quality;
 @end

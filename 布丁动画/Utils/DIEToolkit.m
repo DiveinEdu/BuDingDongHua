@@ -66,4 +66,9 @@
     NSString *path = [NSString stringWithFormat:kDIEEpisodeApi, animeId, index];
     return [self apiWithPath:path];
 }
+
++ (NSString *)videoApiWithVideoId:(NSString *)videoId {
+    NSString *path = [NSString stringWithFormat:kDIEVideoApi, videoId];
+    return [self apiWithPath:path];
+}
 @end

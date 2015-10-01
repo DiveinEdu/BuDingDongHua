@@ -62,4 +62,15 @@
         completion(nil, err);
     }];
 }
+
++ (void)sectionsWithVideoId:(NSString *)videoId quality:(NSInteger)quality completion:(CompletionType)completion {
+    NSString *path = [DIEToolkit videoApiWithVideoId:videoId];
+    NSDictionary *params = [DIEToolkit fullParams:@{@"quality":@(quality)}];
+    [[AFHTTPSessionManager manager] GET:path parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        completion(responseObject, nil);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        DIEError *err = [[DIEError alloc] initWithError:error];
+        completion(nil, err);
+    }];
+}
 @end

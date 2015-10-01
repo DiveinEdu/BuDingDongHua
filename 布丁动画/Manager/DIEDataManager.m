@@ -47,7 +47,7 @@
 
 - (id)parseData:(id)data withModel:(Class)class{
     if ([data isKindOfClass:[NSArray class]]) {
-        //    //转换整个JSON数组
+        //转换整个JSON数组
         return [class modelsFromJSONArray:data];
     }
     else {
@@ -87,6 +87,12 @@
     [DIENetworkManager episodeWithAnimeId:animeId index:index completion:^(id responseObject, DIEError *error) {
         DIEEpisodeModel *episode = [self parseData:responseObject withModel:[DIEEpisodeModel class]];
         DIEPost(kDIEEpisodeNotif, nil, @{kDIENotificationUserInfo:episode});
+    }];
+}
+
+- (void)sectionsWithVideoId:(NSString *)videoId quality:(NSInteger)quality {
+    [DIENetworkManager sectionsWithVideoId:videoId quality:quality completion:^(id responseObject, DIEError *error) {
+        
     }];
 }
 @end
