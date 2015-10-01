@@ -19,7 +19,6 @@
 {
     NSMutableArray *_categoryArray;
     
-    NSInteger _categoryOffset;
     NSInteger _categoryLimit;
 }
 @end
@@ -60,12 +59,21 @@
 }
 
 - (void)updateCategory {
-    [DIENetworkManager categoryWithOffset:_categoryOffset limit:_categoryLimit completion:^(id responseObject, DIEError *error) {
+    [DIENetworkManager categoryWithOffset:0 limit:_categoryLimit completion:^(id responseObject, DIEError *error) {
         NSArray *array = [self parseData:responseObject withModel:[DIECategoryModel class]];
         [_categoryArray removeAllObjects];
         [_categoryArray addObjectsFromArray:array];
         
         DIEPost(kDIECategoryUpdateNotif, nil, nil);
+    }];
+}
+
+- (void)loadMoreCategory {
+    [DIENetworkManager categoryWithOffset:_categoryArray.count limit:_categoryLimit completion:^(id responseObject, DIEError *error) {
+        NSArray *array = [self parseData:responseObject withModel:[DIECategoryModel class]];
+        [_categoryArray addObjectsFromArray:array];
+        
+        DIEPost(kDIECategryLoadMoreNotif, nil, nil);
     }];
 }
 
