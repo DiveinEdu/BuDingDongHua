@@ -71,6 +71,11 @@
 		1857AEFA1BB0ED31001BA627 /* DIEUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1857AEF91BB0ED31001BA627 /* DIEUserInfoView.m */; };
 		185A223B1BBBD7C100BA141D /* DIEAnimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A223A1BBBD7C100BA141D /* DIEAnimeModel.m */; };
 		185A223E1BBBDE1100BA141D /* DIEAnimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A223D1BBBDE1100BA141D /* DIEAnimeViewController.m */; };
+		185A22411BBC044C00BA141D /* DIEEpisodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A22401BBC044C00BA141D /* DIEEpisodeModel.m */; };
+		185A22441BBC04B000BA141D /* DIEVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A22431BBC04B000BA141D /* DIEVideoModel.m */; };
+		185A224A1BBC1EB300BA141D /* DIEEpisodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A22491BBC1EB300BA141D /* DIEEpisodeViewController.m */; };
+		185A224D1BBC430600BA141D /* DIEVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A224C1BBC430600BA141D /* DIEVideoViewController.m */; };
+		185A22501BBC450800BA141D /* DIESectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A224F1BBC450800BA141D /* DIESectionModel.m */; };
 		186DDFE21BAEEF0D006FA3B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE11BAEEF0D006FA3B1 /* main.m */; };
 		186DDFE51BAEEF0D006FA3B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE41BAEEF0D006FA3B1 /* AppDelegate.m */; };
 		186DDFED1BAEEF0D006FA3B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186DDFEC1BAEEF0D006FA3B1 /* Assets.xcassets */; };
@@ -244,6 +249,16 @@
 		185A223A1BBBD7C100BA141D /* DIEAnimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEAnimeModel.m; sourceTree = "<group>"; };
 		185A223C1BBBDE1100BA141D /* DIEAnimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEAnimeViewController.h; sourceTree = "<group>"; };
 		185A223D1BBBDE1100BA141D /* DIEAnimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEAnimeViewController.m; sourceTree = "<group>"; };
+		185A223F1BBC044C00BA141D /* DIEEpisodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEEpisodeModel.h; sourceTree = "<group>"; };
+		185A22401BBC044C00BA141D /* DIEEpisodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEEpisodeModel.m; sourceTree = "<group>"; };
+		185A22421BBC04B000BA141D /* DIEVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEVideoModel.h; sourceTree = "<group>"; };
+		185A22431BBC04B000BA141D /* DIEVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEVideoModel.m; sourceTree = "<group>"; };
+		185A22481BBC1EB300BA141D /* DIEEpisodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEEpisodeViewController.h; sourceTree = "<group>"; };
+		185A22491BBC1EB300BA141D /* DIEEpisodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEEpisodeViewController.m; sourceTree = "<group>"; };
+		185A224B1BBC430600BA141D /* DIEVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEVideoViewController.h; sourceTree = "<group>"; };
+		185A224C1BBC430600BA141D /* DIEVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEVideoViewController.m; sourceTree = "<group>"; };
+		185A224E1BBC450800BA141D /* DIESectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIESectionModel.h; sourceTree = "<group>"; };
+		185A224F1BBC450800BA141D /* DIESectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIESectionModel.m; sourceTree = "<group>"; };
 		186DDFDD1BAEEF0D006FA3B1 /* 布丁动画.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "布丁动画.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		186DDFE11BAEEF0D006FA3B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		186DDFE31BAEEF0D006FA3B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -397,6 +412,12 @@
 				185548F41BB98DC10060985E /* DIECategoryModel.m */,
 				185A22391BBBD7C100BA141D /* DIEAnimeModel.h */,
 				185A223A1BBBD7C100BA141D /* DIEAnimeModel.m */,
+				185A223F1BBC044C00BA141D /* DIEEpisodeModel.h */,
+				185A22401BBC044C00BA141D /* DIEEpisodeModel.m */,
+				185A22421BBC04B000BA141D /* DIEVideoModel.h */,
+				185A22431BBC04B000BA141D /* DIEVideoModel.m */,
+				185A224E1BBC450800BA141D /* DIESectionModel.h */,
+				185A224F1BBC450800BA141D /* DIESectionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -623,6 +644,10 @@
 				185548AF1BB52B190060985E /* DIEDetailViewController.m */,
 				185A223C1BBBDE1100BA141D /* DIEAnimeViewController.h */,
 				185A223D1BBBDE1100BA141D /* DIEAnimeViewController.m */,
+				185A22481BBC1EB300BA141D /* DIEEpisodeViewController.h */,
+				185A22491BBC1EB300BA141D /* DIEEpisodeViewController.m */,
+				185A224B1BBC430600BA141D /* DIEVideoViewController.h */,
+				185A224C1BBC430600BA141D /* DIEVideoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -802,6 +827,8 @@
 				185548AD1BB524F20060985E /* DIEToolkit.m in Sources */,
 				185549951BBA5F940060985E /* AFURLConnectionOperation.m in Sources */,
 				186DDFE51BAEEF0D006FA3B1 /* AppDelegate.m in Sources */,
+				185A22411BBC044C00BA141D /* DIEEpisodeModel.m in Sources */,
+				185A224A1BBC1EB300BA141D /* DIEEpisodeViewController.m in Sources */,
 				1855499E1BBA5F940060985E /* UIButton+AFNetworking.m in Sources */,
 				186DE0021BAEF296006FA3B1 /* MMDrawerBarButtonItem.m in Sources */,
 				185548D71BB536710060985E /* SDWebImageDownloaderOperation.m in Sources */,
@@ -830,12 +857,14 @@
 				185548E81BB982530060985E /* DIEDataManager.m in Sources */,
 				185549631BBA46A50060985E /* NSError+MTLModelException.m in Sources */,
 				185548F51BB98DC10060985E /* DIECategoryModel.m in Sources */,
+				185A22441BBC04B000BA141D /* DIEVideoModel.m in Sources */,
 				185549971BBA5F940060985E /* AFURLResponseSerialization.m in Sources */,
 				186DE0471BAF820E006FA3B1 /* MASConstraint.m in Sources */,
 				1855495C1BBA46A50060985E /* MTLReflection.m in Sources */,
 				187980881BBAE16D00E9775D /* DIEError.m in Sources */,
 				1855492D1BBA3EE40060985E /* DIECategoryDetailCell.m in Sources */,
 				185549611BBA46A50060985E /* NSDictionary+MTLManipulationAdditions.m in Sources */,
+				185A224D1BBC430600BA141D /* DIEVideoViewController.m in Sources */,
 				186DE0051BAEF296006FA3B1 /* UIViewController+MMDrawerController.m in Sources */,
 				185548DE1BB536710060985E /* UIImageView+WebCache.m in Sources */,
 				185549651BBA46A50060985E /* NSValueTransformer+MTLInversionAdditions.m in Sources */,
@@ -848,6 +877,7 @@
 				185548DC1BB536710060985E /* UIImage+MultiFormat.m in Sources */,
 				186DE02B1BAF81D0006FA3B1 /* DIELeftTableViewCell.m in Sources */,
 				186DE04C1BAF820E006FA3B1 /* NSArray+MASAdditions.m in Sources */,
+				185A22501BBC450800BA141D /* DIESectionModel.m in Sources */,
 				186DE07E1BAFF67B006FA3B1 /* DIEThirdViewController.m in Sources */,
 				185548D41BB536710060985E /* SDWebImageCompat.m in Sources */,
 				186DE04D1BAF820E006FA3B1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,

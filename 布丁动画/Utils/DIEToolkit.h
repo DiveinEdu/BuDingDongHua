@@ -33,4 +33,5 @@
 + (NSString *)categoryApi;
 + (NSString *)categoryDetailApiWithId:(NSString *)categoryId;
 + (NSString *)userAnimeApiWithId:(NSString *)animeId;
++ (NSString *)episodeApiWithAnimeId:(NSString *)animeId index:(NSInteger)index;
 @end

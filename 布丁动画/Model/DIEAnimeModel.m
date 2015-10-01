@@ -37,7 +37,8 @@
          @"videoSources":@"videoSources",
          @"width":@"image.width",
          @"height":@"image.height",
-         @"url":@"image.url"
+         @"url":@"image.url",
+         @"latestWatchedEpNumber":@"latestWatchedEpNumber"
     };
 }
 

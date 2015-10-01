@@ -11,6 +11,7 @@
 
 #import "DIECategoryModel.h"
 #import "DIEAnimeModel.h"
+#import "DIEEpisodeModel.h"
 
 #import "DIENotificationConfig.h"
 
@@ -44,9 +45,14 @@
     return self;
 }
 
-- (NSArray *)parseData:(NSArray *)array withModel:(Class)class{
-//    //转换整个JSON数组
-    return [class modelsFromJSONArray:array];
+- (id)parseData:(id)data withModel:(Class)class{
+    if ([data isKindOfClass:[NSArray class]]) {
+        //    //转换整个JSON数组
+        return [class modelsFromJSONArray:data];
+    }
+    else {
+        return [class modelFromJSONDictionary:data];
+    }
 }
 
 - (NSArray *)categoryArray {
@@ -71,6 +77,16 @@
 }
 
 - (void)currentAnimeWithId:(NSString *)animeId {
-    
+    [DIENetworkManager animeWithId:animeId completion:^(id responseObject, DIEError *error) {
+        DIEAnimeModel *anime = [self parseData:responseObject withModel:[DIEAnimeModel class]];
+        DIEPost(kDIEUserAnimeNotif, nil, @{kDIENotificationUserInfo:anime});
+    }];
+}
+
+- (void)episodeWithAnimeId:(NSString *)animeId index:(NSInteger)index {
+    [DIENetworkManager episodeWithAnimeId:animeId index:index completion:^(id responseObject, DIEError *error) {
+        DIEEpisodeModel *episode = [self parseData:responseObject withModel:[DIEEpisodeModel class]];
+        DIEPost(kDIEEpisodeNotif, nil, @{kDIENotificationUserInfo:episode});
+    }];
 }
 @end

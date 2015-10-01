@@ -1,32 +1,31 @@
 //
-//  DIEAnimeViewController.m
+//  DIEEpisodeViewController.m
 //  布丁动画
 //
 //  Created by apple on 15/9/30.
 //  Copyright © 2015年 戴维营教育. All rights reserved.
 //
 
-#import "DIEAnimeViewController.h"
 #import "DIEEpisodeViewController.h"
 
 #import "DIEDataManager.h"
 #import "DIEEpisodeModel.h"
+#import "DIEVideoModel.h"
 
 #import "DIENotificationConfig.h"
 
-@interface DIEAnimeViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface DIEEpisodeViewController () <UITableViewDelegate, UITableViewDataSource>
 {
     UITableView *_tableView;
     
-    NSArray *_episodeArray;
+    DIEEpisodeModel *_episode;
 }
 @end
 
-@implementation DIEAnimeViewController
+@implementation DIEEpisodeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.dataSource = self;
@@ -34,40 +33,37 @@
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.view addSubview:_tableView];
     
-    DIEAddObserver(self, @selector(didUpdate:), kDIEUserAnimeNotif, nil);
+    DIEAddObserver(self, @selector(didUpdate:), kDIEEpisodeNotif, nil);
     
-    [[DIEDataManager sharedManager] currentAnimeWithId:_anime.animeId];
+    [[DIEDataManager sharedManager] episodeWithAnimeId:_anime.animeId index:_currentEpisode];
 }
 
 - (void)didUpdate:(NSNotification *)notification {
-    DIEAnimeModel *model = notification.userInfo[kDIENotificationUserInfo];
-    //合并数据
-    _anime.latestWatchedEpNumber = model.latestWatchedEpNumber;
+    _episode = notification.userInfo[kDIENotificationUserInfo];
     [_tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _anime.onairEpNumber;
+    return _episode.videos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row + 1];
+    DIEVideoModel *video = _episode.videos[indexPath.row];
+    cell.textLabel.text = video.sourceWording;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DIEEpisodeViewController *episodeCtrl = [[DIEEpisodeViewController alloc] init];
-    episodeCtrl.anime = _anime;
-    episodeCtrl.currentEpisode = indexPath.row + 1;
-    [self.navigationController pushViewController:episodeCtrl animated:YES];
+    DIEVideoModel *video = _episode.videos[indexPath.row];
+    NSLog(@"%@", video.sourceWording);
 }
 
 - (void)dealloc {
-    DIERemoveObserver(self, kDIEUserAnimeNotif, nil);
+    DIERemoveObserver(self, kDIEEpisodeNotif, nil);
 }
 
 @end

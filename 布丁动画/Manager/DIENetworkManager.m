@@ -50,4 +50,16 @@
         completion(nil, err);
     }];
 }
+
++ (void)episodeWithAnimeId:(NSString *)animeId index:(NSInteger)index completion:(CompletionType)completion {
+    
+    NSString *path = [DIEToolkit episodeApiWithAnimeId:animeId index:index];
+    NSDictionary *params = [DIEToolkit fullParams:nil];
+    [[AFHTTPSessionManager manager] GET:path parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        completion(responseObject, nil);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        DIEError *err = [[DIEError alloc] initWithError:error];
+        completion(nil, err);
+    }];
+}
 @end

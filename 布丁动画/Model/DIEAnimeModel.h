@@ -39,6 +39,7 @@
 @property (nonatomic, assign) NSInteger totalEpCount;
 @property (nonatomic, assign) NSInteger type;
 @property (nonatomic, strong) NSArray * videoSources;
+@property (nonatomic, assign) NSInteger latestWatchedEpNumber;
 
 //简便的对象创建方法
 + (instancetype)modelFromJSONDictionary:(NSDictionary *)dictionary;

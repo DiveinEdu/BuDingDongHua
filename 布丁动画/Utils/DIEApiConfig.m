@@ -13,3 +13,4 @@ NSString * const kDIEHost = @"http://pudding.cc";
 NSString * const kDIECategoryApi = @"api/v1/category";
 NSString * const kDIECategoryDetailApi = @"api/v1/category/%@/anime";
 NSString * const kDIEUserAnimeApi = @"api/v1/user_anime";
+NSString * const kDIEEpisodeApi = @"api/v1/anime/%@/ep/%ld";

@@ -15,5 +15,6 @@ typedef void(^CompletionType)(id responseObject, DIEError *error);
 @interface DIENetworkManager : NSObject
 + (void)categoryWithOffset:(NSInteger)offset limit:(NSInteger)limit completion:(CompletionType)completion;
 + (void)categoryDetailWithId:(NSString *)categoryId limit:(NSInteger)limit completion:(CompletionType)completion;
-+ (void)animeWithId:(NSString *)animeId limit:(NSInteger)limit completion:(CompletionType)completion;
++ (void)animeWithId:(NSString *)animeId completion:(CompletionType)completion;
++ (void)episodeWithAnimeId:(NSString *)animeId index:(NSInteger)index completion:(CompletionType)completion;
 @end

@@ -61,4 +61,9 @@
     NSString *path = [kDIEUserAnimeApi stringByAppendingPathComponent:animeId];
     return [self apiWithPath:path];
 }
+
++ (NSString *)episodeApiWithAnimeId:(NSString *)animeId index:(NSInteger)index {
+    NSString *path = [NSString stringWithFormat:kDIEEpisodeApi, animeId, index];
+    return [self apiWithPath:path];
+}
 @end
