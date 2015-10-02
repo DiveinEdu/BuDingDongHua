@@ -65,7 +65,8 @@
 
 + (void)sectionsWithVideoId:(NSString *)videoId quality:(NSInteger)quality completion:(CompletionType)completion {
     NSString *path = [DIEToolkit videoApiWithVideoId:videoId];
-    NSDictionary *params = [DIEToolkit fullParams:@{@"quality":@(quality)}];
+    NSDictionary *params = [DIEToolkit fullParams:@{@"quality":@(quality),
+                                                    @"deviceType":@(1001)}];
     [[AFHTTPSessionManager manager] GET:path parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         completion(responseObject, nil);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

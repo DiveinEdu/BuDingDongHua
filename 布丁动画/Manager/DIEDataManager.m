@@ -12,6 +12,7 @@
 #import "DIECategoryModel.h"
 #import "DIEAnimeModel.h"
 #import "DIEEpisodeModel.h"
+#import "DIEVideoModel.h"
 
 #import "DIENotificationConfig.h"
 
@@ -65,6 +66,7 @@
         [_categoryArray addObjectsFromArray:array];
         
         DIEPost(kDIECategoryUpdateNotif, nil, nil);
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kDIECategoryUpdateNotif object:nil];
     }];
 }
 
@@ -100,7 +102,10 @@
 
 - (void)sectionsWithVideoId:(NSString *)videoId quality:(NSInteger)quality {
     [DIENetworkManager sectionsWithVideoId:videoId quality:quality completion:^(id responseObject, DIEError *error) {
-        
+        if (error == nil) {
+            DIEVideoModel *video = [self parseData:responseObject withModel:[DIEVideoModel class]];
+            DIEPost(kDIEVideoNotif, nil, @{kDIENotificationUserInfo:video});
+        }
     }];
 }
 @end

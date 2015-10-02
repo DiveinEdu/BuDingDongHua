@@ -53,6 +53,8 @@
     
     DIEAddObserver(self, @selector(didUpdate), kDIECategoryUpdateNotif, nil);
     
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdate) name:kDIECategoryUpdateNotif object:nil]
+    
     //获取分类数据
     [[DIEDataManager sharedManager] updateCategory];
 //    NSDictionary *dict = @{@"offset":@0, @"limit":@24};

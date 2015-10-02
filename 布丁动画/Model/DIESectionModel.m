@@ -14,7 +14,9 @@
              @"duration":@"duration",
              @"fileType":@"fileType",
              @"number":@"nsnumber",
-             @"url":@"videoUrl"
+             @"videoUrl":@"videoUrl",
+             @"directParseHost":@"directParseHost",
+             @"directParseScript":@"directParseScript"
              };
 }
 

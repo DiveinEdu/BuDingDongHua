@@ -18,6 +18,14 @@
 @property (nonatomic, strong) NSString * sourceWording;
 @property (nonatomic, strong) NSURL * url;
 
+@property (nonatomic, strong) NSArray *availableQualities;
+@property (nonatomic, assign) BOOL playDirectly;
+@property (nonatomic, strong) NSDictionary *quality;
+@property (nonatomic, assign) NSInteger playerType;
+@property (nonatomic, strong) NSArray *sections;
+@property (nonatomic, strong) NSArray *videoPageUrl;
+@property (nonatomic, strong) NSArray *videoTimeSnippets;
+
 //简便的对象创建方法
 + (instancetype)modelFromJSONDictionary:(NSDictionary *)dictionary;
 + (NSArray *)modelsFromJSONArray:(NSArray *)array;

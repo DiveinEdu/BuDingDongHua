@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+ 
 #import "Mantle.h"
 
 @interface DIESectionModel : MTLModel <MTLJSONSerializing>
@@ -15,6 +15,8 @@
 @property (nonatomic, assign) NSInteger duration;
 @property (nonatomic, assign) NSInteger fileType;
 @property (nonatomic, assign) NSInteger number;
-@property (nonatomic, strong) NSString * videoUrl;
+@property (nonatomic, strong) NSURL * videoUrl;
+@property (nonatomic, strong) NSString *directParseHost;
+@property (nonatomic, strong) NSString *directParseScript;
 
 @end

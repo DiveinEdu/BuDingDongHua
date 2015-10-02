@@ -76,6 +76,7 @@
 		185A224A1BBC1EB300BA141D /* DIEEpisodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A22491BBC1EB300BA141D /* DIEEpisodeViewController.m */; };
 		185A224D1BBC430600BA141D /* DIEVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A224C1BBC430600BA141D /* DIEVideoViewController.m */; };
 		185A22501BBC450800BA141D /* DIESectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A224F1BBC450800BA141D /* DIESectionModel.m */; };
+		185A225D1BBD16F900BA141D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 185A225F1BBD16F900BA141D /* Localizable.strings */; };
 		186DDFE21BAEEF0D006FA3B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE11BAEEF0D006FA3B1 /* main.m */; };
 		186DDFE51BAEEF0D006FA3B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDFE41BAEEF0D006FA3B1 /* AppDelegate.m */; };
 		186DDFED1BAEEF0D006FA3B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186DDFEC1BAEEF0D006FA3B1 /* Assets.xcassets */; };
@@ -116,6 +117,7 @@
 		1879808C1BBAEC9700E9775D /* DIEApiConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879808B1BBAEC9700E9775D /* DIEApiConfig.m */; };
 		1879808F1BBAFDA000E9775D /* DIENotificationConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879808E1BBAFDA000E9775D /* DIENotificationConfig.m */; };
 		18C6386F1BB3977B00D2FCB6 /* DIECenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C6386E1BB3977B00D2FCB6 /* DIECenterViewController.m */; };
+		18ED659A1BBD1CA200675E93 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18ED659C1BBD1CA200675E93 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -259,13 +261,19 @@
 		185A224C1BBC430600BA141D /* DIEVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIEVideoViewController.m; sourceTree = "<group>"; };
 		185A224E1BBC450800BA141D /* DIESectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIESectionModel.h; sourceTree = "<group>"; };
 		185A224F1BBC450800BA141D /* DIESectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIESectionModel.m; sourceTree = "<group>"; };
+		185A22571BBD147300BA141D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		185A225E1BBD16F900BA141D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		185A22601BBD17EC00BA141D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		185A22611BBD17EC00BA141D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		185A22631BBD181000BA141D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		185A22641BBD181000BA141D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		185A22661BBD182D00BA141D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		186DDFDD1BAEEF0D006FA3B1 /* 布丁动画.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "布丁动画.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		186DDFE11BAEEF0D006FA3B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		186DDFE31BAEEF0D006FA3B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		186DDFE41BAEEF0D006FA3B1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		186DDFEC1BAEEF0D006FA3B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186DDFEF1BAEEF0D006FA3B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		186DDFF11BAEEF0D006FA3B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		186DDFF91BAEF296006FA3B1 /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
 		186DDFFA1BAEF296006FA3B1 /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
 		186DDFFB1BAEF296006FA3B1 /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
@@ -332,6 +340,10 @@
 		1879808E1BBAFDA000E9775D /* DIENotificationConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIENotificationConfig.m; sourceTree = "<group>"; };
 		18C6386D1BB3977B00D2FCB6 /* DIECenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIECenterViewController.h; sourceTree = "<group>"; };
 		18C6386E1BB3977B00D2FCB6 /* DIECenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIECenterViewController.m; sourceTree = "<group>"; };
+		18ED659B1BBD1CA200675E93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18ED659D1BBD1CA300675E93 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18ED659E1BBD1CA400675E93 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		18ED659F1BBD1CA500675E93 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,7 +595,9 @@
 				186DDFEC1BAEEF0D006FA3B1 /* Assets.xcassets */,
 				186DE00D1BAEFA8F006FA3B1 /* images */,
 				186DDFEE1BAEEF0D006FA3B1 /* LaunchScreen.storyboard */,
-				186DDFF11BAEEF0D006FA3B1 /* Info.plist */,
+				185A225F1BBD16F900BA141D /* Localizable.strings */,
+				185A22581BBD147300BA141D /* Info.plist */,
+				18ED659C1BBD1CA200675E93 /* InfoPlist.strings */,
 				186DDFE01BAEEF0D006FA3B1 /* Supporting Files */,
 			);
 			path = "布丁动画";
@@ -766,6 +780,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				ja,
 			);
 			mainGroup = 186DDFD41BAEEF0C006FA3B1;
 			productRefGroup = 186DDFDE1BAEEF0D006FA3B1 /* Products */;
@@ -792,9 +808,11 @@
 				186DE0201BAF8109006FA3B1 /* side_menu_icon_notification~iphone.png in Resources */,
 				186DE00F1BAEFA8F006FA3B1 /* side_menu_bg.jpg in Resources */,
 				186DDFED1BAEEF0D006FA3B1 /* Assets.xcassets in Resources */,
+				18ED659A1BBD1CA200675E93 /* InfoPlist.strings in Resources */,
 				185548E21BB5377D0060985E /* timeline_subject_add_icon@2x~iphone.png in Resources */,
 				186DE01D1BAF8109006FA3B1 /* side_menu_icon_cache@2x~iphone.png in Resources */,
 				186DE0231BAF8109006FA3B1 /* side_menu_icon_promotor@2x~iphone.png in Resources */,
+				185A225D1BBD16F900BA141D /* Localizable.strings in Resources */,
 				186DE0801BAFFBD0006FA3B1 /* side_menu_icon_cache~iphone.png in Resources */,
 				186DE0821BB00161006FA3B1 /* side_menu_icon_history@2x~iphone.png in Resources */,
 				185548E31BB5377D0060985E /* timeline_subject_add_icon~iphone.png in Resources */,
@@ -907,12 +925,44 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		185A22581BBD147300BA141D /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				185A22571BBD147300BA141D /* Base */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		185A225F1BBD16F900BA141D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				185A225E1BBD16F900BA141D /* en */,
+				185A22611BBD17EC00BA141D /* zh-Hans */,
+				185A22641BBD181000BA141D /* ja */,
+				185A22661BBD182D00BA141D /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		186DDFEE1BAEEF0D006FA3B1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				186DDFEF1BAEEF0D006FA3B1 /* Base */,
+				185A22601BBD17EC00BA141D /* zh-Hans */,
+				185A22631BBD181000BA141D /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		18ED659C1BBD1CA200675E93 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18ED659B1BBD1CA200675E93 /* Base */,
+				18ED659D1BBD1CA300675E93 /* en */,
+				18ED659E1BBD1CA400675E93 /* zh-Hans */,
+				18ED659F1BBD1CA500675E93 /* ja */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

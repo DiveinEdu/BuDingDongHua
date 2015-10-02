@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "DIEEpisodeModel.h"
+#import "DIEVideoModel.h"
 
 @interface DIEVideoViewController : UIViewController
-@property (nonatomic, strong) DIEEpisodeModel *episode;
+@property (nonatomic, strong) DIEVideoModel *video;
 @end

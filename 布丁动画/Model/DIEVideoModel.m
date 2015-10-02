@@ -7,6 +7,7 @@
 //
 
 #import "DIEVideoModel.h"
+#import "DIESectionModel.h"
 
 @implementation DIEVideoModel
 
@@ -16,7 +17,14 @@
          @"epId":@"epId",
          @"source":@"source",
          @"url":@"url",
-         @"sourceWording":@"sourceWording"
+         @"sourceWording":@"sourceWording",
+         @"availableQualities":@"availableQualities",
+         @"playDirectly":@"playDirectly",
+         @"quality":@"quality",
+         @"playerType":@"playerType",
+         @"sections":@"sections",
+         @"videoPageUrl":@"videoPageUrl",
+         @"videoTimeSnippets":@"videoTimeSnippets"
     };
 }
 
@@ -28,7 +36,32 @@
     return [MTLJSONAdapter modelsOfClass:[self class] fromJSONArray:array error:nil];
 }
 
+//指定特定属性的转换规则
 + (NSValueTransformer *)urlJSONTransformer {
     return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+}
+
++ (NSValueTransformer *)videoPageUrlJSONTransformer {
+    return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+}
+
++ (NSValueTransformer *)sectionsJSONTransformer {
+    return [MTLJSONAdapter arrayTransformerWithModelClass:[DIESectionModel class]];
+}
+
+//指定特定属性的合并规则
+- (void)mergeVideoIdFromModel:(NSObject<MTLModel> *)model {
+}
+
+- (void)mergeEpIdFromModel:(NSObject<MTLModel> *)model {
+}
+
+- (void)mergeSourceFromModel:(NSObject<MTLModel> *)model {
+}
+
+- (void)mergeSourceWordingFromModel:(NSObject<MTLModel> *)model {
+}
+
+- (void)mergeUrlFromModel:(NSObject<MTLModel> *)model {
 }
 @end

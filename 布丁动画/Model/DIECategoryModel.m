@@ -74,7 +74,13 @@ NSString * const kCategoryImageUrl = @"url";
     return [MTLJSONAdapter modelsOfClass:[self class] fromJSONArray:array error:nil];
 }
 
+//属性名+JSONTransformer
 + (NSValueTransformer *)urlJSONTransformer {
+    //创建一个NSString类型和NSURL类型之间进行相互转换的对象
     return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
 }
+
+//+ (NSValueTransformer *)urlJSONTransformer {
+//    return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+//}
 @end

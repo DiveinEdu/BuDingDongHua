@@ -32,7 +32,7 @@
     if (self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil]) {
         //设置导航条上的标题栏
         _titleView = [[DIESegmentView alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
-        _titleView.titleArray = @[@"推荐", @"分类"];
+        _titleView.titleArray = @[NSLocalizedString(@"tuiji", nil), NSLocalizedString(@"fenlei", nil)];
         
         //防止block导致的循环引用
         __weak typeof(self) weakSelf = self;

@@ -7,6 +7,7 @@
 //
 
 #import "DIEEpisodeViewController.h"
+#import "DIEVideoViewController.h"
 
 #import "DIEDataManager.h"
 #import "DIEEpisodeModel.h"
@@ -60,6 +61,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DIEVideoModel *video = _episode.videos[indexPath.row];
     NSLog(@"%@", video.sourceWording);
+    
+    DIEVideoViewController *videoCtrl = [[DIEVideoViewController alloc] init];
+    videoCtrl.video = video;
+    [self.navigationController pushViewController:videoCtrl animated:YES];
 }
 
 - (void)dealloc {
