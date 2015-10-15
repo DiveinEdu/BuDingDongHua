@@ -21,6 +21,9 @@
 
 #import "UIImageView+WebCache.h"
 #import "AFNetworking.h"
+#import "UIScrollView+INSPullToRefresh.h"
+#import "INSLabelPullToRefresh.h"
+#import "INSDefaultInfiniteIndicator.h"
 
 @interface DIECategoryViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -50,26 +53,57 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //1. 下拉刷新，如果有新数据，需要将所有数据清理并换用新数据
+    //2. 上拉加载更多，需要保留老数据，只是追加新数据
     
+    //添加观察者
     DIEAddObserver(self, @selector(didUpdate), kDIECategoryUpdateNotif, nil);
+    DIEAddObserver(self, @selector(didMore), kDIECategryLoadMoreNotif, nil);
+
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdate) name:kDIECategoryUpdateNotif object:nil]
-    
-    //获取分类数据
-    [[DIEDataManager sharedManager] updateCategory];
-//    NSDictionary *dict = @{@"offset":@0, @"limit":@24};
-//    
-//    [[AFHTTPSessionManager manager] GET:[DIEToolkit categoryApi] parameters:[DIEToolkit fullParams:dict] success:^(NSURLSessionDataTask *task, id responseObject) {
-//        NSLog(@"%@", responseObject);
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        NSLog(@"%@", error);
-//    }];
-    
+    //显示UICollectionView
     [self collectionView];
     [self.view addSubview:_collectionView];
+    
+    //1. 设置下拉刷新控件
+    [_collectionView ins_addPullToRefreshWithHeight:60 handler:^(UIScrollView *scrollView) {
+        //2. 从网络上获取分类数据
+        [[DIEDataManager sharedManager] updateCategory];
+    }];
+    
+    //设置文字状态
+    INSLabelPullToRefresh *pullToRefreshView = [[INSLabelPullToRefresh alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 60) noneStateText:@"下拉刷新" triggeredStateText:@"松开开始加载数据" loadingStateText:@"正在更新数据"];
+    _collectionView.ins_pullToRefreshBackgroundView.delegate = pullToRefreshView;
+    
+    [_collectionView.ins_pullToRefreshBackgroundView addSubview:pullToRefreshView];
+    
+    //3. 手动触发更新动作
+    [_collectionView ins_beginPullToRefresh];
+    
+    [_collectionView ins_addInfinityScrollWithHeight:60 handler:^(UIScrollView *scrollView) {
+        NSLog(@"上拉加载更多");
+        
+        [[DIEDataManager sharedManager] loadMoreCategory];
+    }];
+    
+    INSDefaultInfiniteIndicator *infiniteIndicator = [[INSDefaultInfiniteIndicator alloc] init];
+    _collectionView.ins_infiniteScrollBackgroundView.delegate = infiniteIndicator;
+    [infiniteIndicator startAnimating];
+    [_collectionView.ins_infiniteScrollBackgroundView addSubview:infiniteIndicator];
 }
 
 - (void)didUpdate {
+    //4. 更新结束，恢复原始位置
+    [_collectionView ins_endPullToRefresh];
+    
+    _categoryArray = [DIEDataManager sharedManager].categoryArray;
+    [_collectionView reloadData];
+}
+
+//完成加载更多
+- (void)didMore {
+    [_collectionView ins_endInfinityScroll];
+    
     _categoryArray = [DIEDataManager sharedManager].categoryArray;
     [_collectionView reloadData];
 }

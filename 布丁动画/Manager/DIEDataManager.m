@@ -62,6 +62,7 @@
 - (void)updateCategory {
     [DIENetworkManager categoryWithOffset:0 limit:_categoryLimit completion:^(id responseObject, DIEError *error) {
         NSArray *array = [self parseData:responseObject withModel:[DIECategoryModel class]];
+        //清除所有老数据
         [_categoryArray removeAllObjects];
         [_categoryArray addObjectsFromArray:array];
         
@@ -73,6 +74,7 @@
 - (void)loadMoreCategory {
     [DIENetworkManager categoryWithOffset:_categoryArray.count limit:_categoryLimit completion:^(id responseObject, DIEError *error) {
         NSArray *array = [self parseData:responseObject withModel:[DIECategoryModel class]];
+        //追加新数据
         [_categoryArray addObjectsFromArray:array];
         
         DIEPost(kDIECategryLoadMoreNotif, nil, nil);

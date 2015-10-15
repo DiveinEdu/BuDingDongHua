@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		181D28F01BB3E517007DD1A0 /* DIESegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D28EF1BB3E517007DD1A0 /* DIESegmentView.m */; };
+		1834714A1BCF506E00C45194 /* INSInfiniteScrollBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183471431BCF506E00C45194 /* INSInfiniteScrollBackgroundView.m */; };
+		1834714B1BCF506E00C45194 /* INSPullToRefreshBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183471451BCF506E00C45194 /* INSPullToRefreshBackgroundView.m */; };
+		1834714C1BCF506E00C45194 /* UIScrollView+INSPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 183471471BCF506E00C45194 /* UIScrollView+INSPullToRefresh.m */; };
+		1834714D1BCF506E00C45194 /* UIView+INSFirstReponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 183471491BCF506E00C45194 /* UIView+INSFirstReponder.m */; };
+		183471521BCF524A00C45194 /* INSLabelPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 183471511BCF524A00C45194 /* INSLabelPullToRefresh.m */; };
+		183471581BCF55E200C45194 /* INSDefaultInfiniteIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 183471551BCF55E200C45194 /* INSDefaultInfiniteIndicator.m */; };
+		183471591BCF55E200C45194 /* INSDefaultPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 183471571BCF55E200C45194 /* INSDefaultPullToRefresh.m */; };
 		185548A91BB4F7B80060985E /* DIECategoryFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548A81BB4F7B80060985E /* DIECategoryFlowLayout.m */; };
 		185548AD1BB524F20060985E /* DIEToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548AC1BB524F20060985E /* DIEToolkit.m */; };
 		185548B01BB52B190060985E /* DIEDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548AF1BB52B190060985E /* DIEDetailViewController.m */; };
@@ -123,6 +130,21 @@
 /* Begin PBXFileReference section */
 		181D28EE1BB3E517007DD1A0 /* DIESegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIESegmentView.h; sourceTree = "<group>"; };
 		181D28EF1BB3E517007DD1A0 /* DIESegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIESegmentView.m; sourceTree = "<group>"; };
+		183471421BCF506E00C45194 /* INSInfiniteScrollBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSInfiniteScrollBackgroundView.h; sourceTree = "<group>"; };
+		183471431BCF506E00C45194 /* INSInfiniteScrollBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSInfiniteScrollBackgroundView.m; sourceTree = "<group>"; };
+		183471441BCF506E00C45194 /* INSPullToRefreshBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPullToRefreshBackgroundView.h; sourceTree = "<group>"; };
+		183471451BCF506E00C45194 /* INSPullToRefreshBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPullToRefreshBackgroundView.m; sourceTree = "<group>"; };
+		183471461BCF506E00C45194 /* UIScrollView+INSPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+INSPullToRefresh.h"; sourceTree = "<group>"; };
+		183471471BCF506E00C45194 /* UIScrollView+INSPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+INSPullToRefresh.m"; sourceTree = "<group>"; };
+		183471481BCF506E00C45194 /* UIView+INSFirstReponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+INSFirstReponder.h"; sourceTree = "<group>"; };
+		183471491BCF506E00C45194 /* UIView+INSFirstReponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+INSFirstReponder.m"; sourceTree = "<group>"; };
+		183471501BCF524A00C45194 /* INSLabelPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSLabelPullToRefresh.h; sourceTree = "<group>"; };
+		183471511BCF524A00C45194 /* INSLabelPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSLabelPullToRefresh.m; sourceTree = "<group>"; };
+		183471541BCF55E200C45194 /* INSDefaultInfiniteIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSDefaultInfiniteIndicator.h; sourceTree = "<group>"; };
+		183471551BCF55E200C45194 /* INSDefaultInfiniteIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSDefaultInfiniteIndicator.m; sourceTree = "<group>"; };
+		183471561BCF55E200C45194 /* INSDefaultPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSDefaultPullToRefresh.h; sourceTree = "<group>"; };
+		183471571BCF55E200C45194 /* INSDefaultPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSDefaultPullToRefresh.m; sourceTree = "<group>"; };
+		1834715A1BCF567600C45194 /* INSAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSAnimatable.h; sourceTree = "<group>"; };
 		185548A71BB4F7B80060985E /* DIECategoryFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIECategoryFlowLayout.h; sourceTree = "<group>"; };
 		185548A81BB4F7B80060985E /* DIECategoryFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIECategoryFlowLayout.m; sourceTree = "<group>"; };
 		185548AB1BB524F20060985E /* DIEToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIEToolkit.h; sourceTree = "<group>"; };
@@ -357,6 +379,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		183471411BCF506E00C45194 /* INSPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				183471421BCF506E00C45194 /* INSInfiniteScrollBackgroundView.h */,
+				183471431BCF506E00C45194 /* INSInfiniteScrollBackgroundView.m */,
+				183471441BCF506E00C45194 /* INSPullToRefreshBackgroundView.h */,
+				183471451BCF506E00C45194 /* INSPullToRefreshBackgroundView.m */,
+				183471461BCF506E00C45194 /* UIScrollView+INSPullToRefresh.h */,
+				183471471BCF506E00C45194 /* UIScrollView+INSPullToRefresh.m */,
+				183471481BCF506E00C45194 /* UIView+INSFirstReponder.h */,
+				183471491BCF506E00C45194 /* UIView+INSFirstReponder.m */,
+			);
+			path = INSPullToRefresh;
+			sourceTree = "<group>";
+		};
+		1834714E1BCF524A00C45194 /* INSPullToRefreshControls */ = {
+			isa = PBXGroup;
+			children = (
+				1834715A1BCF567600C45194 /* INSAnimatable.h */,
+				183471531BCF55E200C45194 /* Default */,
+				1834714F1BCF524A00C45194 /* Text */,
+			);
+			path = INSPullToRefreshControls;
+			sourceTree = "<group>";
+		};
+		1834714F1BCF524A00C45194 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				183471501BCF524A00C45194 /* INSLabelPullToRefresh.h */,
+				183471511BCF524A00C45194 /* INSLabelPullToRefresh.m */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		183471531BCF55E200C45194 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				183471541BCF55E200C45194 /* INSDefaultInfiniteIndicator.h */,
+				183471551BCF55E200C45194 /* INSDefaultInfiniteIndicator.m */,
+				183471561BCF55E200C45194 /* INSDefaultPullToRefresh.h */,
+				183471571BCF55E200C45194 /* INSDefaultPullToRefresh.m */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
 		185548A61BB4F7AA0060985E /* Layout */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,6 +681,8 @@
 		186DDFF71BAEF296006FA3B1 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				1834714E1BCF524A00C45194 /* INSPullToRefreshControls */,
+				183471411BCF506E00C45194 /* INSPullToRefresh */,
 				185549671BBA5F940060985E /* AFNetworking */,
 				185549311BBA46A50060985E /* Mantle */,
 				185548B41BB536710060985E /* SDWebImage */,
@@ -837,6 +906,7 @@
 				185549931BBA5F940060985E /* AFNetworkReachabilityManager.m in Sources */,
 				185548DF1BB536710060985E /* UIView+WebCacheOperation.m in Sources */,
 				1855495E1BBA46A50060985E /* MTLValueTransformer.m in Sources */,
+				1834714A1BCF506E00C45194 /* INSInfiniteScrollBackgroundView.m in Sources */,
 				185549911BBA5F940060985E /* AFHTTPRequestOperationManager.m in Sources */,
 				185549981BBA5F940060985E /* AFURLSessionManager.m in Sources */,
 				186DE04A1BAF820E006FA3B1 /* MASViewAttribute.m in Sources */,
@@ -847,15 +917,18 @@
 				186DDFE51BAEEF0D006FA3B1 /* AppDelegate.m in Sources */,
 				185A22411BBC044C00BA141D /* DIEEpisodeModel.m in Sources */,
 				185A224A1BBC1EB300BA141D /* DIEEpisodeViewController.m in Sources */,
+				1834714C1BCF506E00C45194 /* UIScrollView+INSPullToRefresh.m in Sources */,
 				1855499E1BBA5F940060985E /* UIButton+AFNetworking.m in Sources */,
 				186DE0021BAEF296006FA3B1 /* MMDrawerBarButtonItem.m in Sources */,
 				185548D71BB536710060985E /* SDWebImageDownloaderOperation.m in Sources */,
+				1834714B1BCF506E00C45194 /* INSPullToRefreshBackgroundView.m in Sources */,
 				185549581BBA46A50060985E /* EXTScope.m in Sources */,
 				186DE0091BAEF607006FA3B1 /* DIELeftViewController.m in Sources */,
 				185548B01BB52B190060985E /* DIEDetailViewController.m in Sources */,
 				185548A91BB4F7B80060985E /* DIECategoryFlowLayout.m in Sources */,
 				185548DD1BB536710060985E /* UIImageView+HighlightedWebCache.m in Sources */,
 				186DE0881BB034BF006FA3B1 /* DIECategoryViewController.m in Sources */,
+				183471581BCF55E200C45194 /* INSDefaultInfiniteIndicator.m in Sources */,
 				185549901BBA5F940060985E /* AFHTTPRequestOperation.m in Sources */,
 				185548B31BB534250060985E /* DIECategoryCell.m in Sources */,
 				186DE0461BAF820E006FA3B1 /* MASCompositeConstraint.m in Sources */,
@@ -865,6 +938,7 @@
 				185549A51BBA5FEE0060985E /* DIENetworkManager.m in Sources */,
 				185549921BBA5F940060985E /* AFHTTPSessionManager.m in Sources */,
 				185A223B1BBBD7C100BA141D /* DIEAnimeModel.m in Sources */,
+				1834714D1BCF506E00C45194 /* UIView+INSFirstReponder.m in Sources */,
 				186DE04E1BAF820E006FA3B1 /* View+MASAdditions.m in Sources */,
 				186DE0491BAF820E006FA3B1 /* MASLayoutConstraint.m in Sources */,
 				185549591BBA46A50060985E /* MTLJSONAdapter.m in Sources */,
@@ -884,6 +958,7 @@
 				185549611BBA46A50060985E /* NSDictionary+MTLManipulationAdditions.m in Sources */,
 				185A224D1BBC430600BA141D /* DIEVideoViewController.m in Sources */,
 				186DE0051BAEF296006FA3B1 /* UIViewController+MMDrawerController.m in Sources */,
+				183471591BCF55E200C45194 /* INSDefaultPullToRefresh.m in Sources */,
 				185548DE1BB536710060985E /* UIImageView+WebCache.m in Sources */,
 				185549651BBA46A50060985E /* NSValueTransformer+MTLInversionAdditions.m in Sources */,
 				185549A01BBA5F940060985E /* UIProgressView+AFNetworking.m in Sources */,
@@ -910,6 +985,7 @@
 				186DDFE21BAEEF0D006FA3B1 /* main.m in Sources */,
 				1855495B1BBA46A50060985E /* MTLModel.m in Sources */,
 				185549941BBA5F940060985E /* AFSecurityPolicy.m in Sources */,
+				183471521BCF524A00C45194 /* INSLabelPullToRefresh.m in Sources */,
 				185549301BBA3F640060985E /* DIEStarControl.m in Sources */,
 				181D28F01BB3E517007DD1A0 /* DIESegmentView.m in Sources */,
 				185549621BBA46A50060985E /* NSDictionary+MTLMappingAdditions.m in Sources */,
